@@ -1,9 +1,9 @@
 public class Customer extends User{
     private String address;
     private double balance;
-    private int phone;
+    private String phone;
 
-    public Customer(String address, double balance, int phone, String email, String password) {
+    public Customer(String address, double balance, String phone, String email, String password) {
         this.address = address;
         this.balance = balance;
         this.phone = phone;
@@ -11,11 +11,11 @@ public class Customer extends User{
         super.setPassword(password);
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

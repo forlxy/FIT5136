@@ -1,33 +1,26 @@
-
-/**
- * Write a description of class User here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class User
-{
+public class User {
     private String email;
     private String password;
-    private Customer customer;
 
-    /**
-     * Constructor for objects of class User
-     */
-    public User(String email, String password)
-    {
-        // initialise instance variables
+
+    public User() {
+
+    }
+
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
     }
-    
-    public User(String email, String password, Customer customer) {
-        this.email = email;
-        this.password = password;
-        this.customer = customer;
+
+    public boolean changePassword(String password) {
+        if (password != getPassword() && Registered.validatePassword(password)) {
+            setPassword(password);
+            return true;
+        }
+        return false;
     }
 
-     public String getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -42,12 +35,5 @@ public class User
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
 
 }

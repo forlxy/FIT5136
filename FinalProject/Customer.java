@@ -1,24 +1,14 @@
-
-/**
- * Write a description of class Customer here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Customer
-{
-    // instance variables - replace the example below with your own
+public class Customer extends User{
     private String address;
     private double balance;
     private int phone;
 
-    /**
-     * Constructor for objects of class Customer
-     */
-    public Customer(String address, double balance, int phone) {
+    public Customer(String address, double balance, int phone, String email, String password) {
         this.address = address;
         this.balance = balance;
         this.phone = phone;
+        super.setEmail(email);
+        super.setPassword(password);
     }
 
     public int getPhone() {
@@ -44,12 +34,4 @@ public class Customer
     public void setAddress(String address) {
         this.address = address;
     }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    
 }

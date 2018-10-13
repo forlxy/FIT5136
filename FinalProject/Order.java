@@ -24,7 +24,7 @@ public class Order {
                 ", products=" + products +
                 ", time=" + time +
                 ", paidPrice=" + paidPrice +
-                '}';
+                "}";
     }
 
     @Override

@@ -8,5 +8,16 @@ public class RegisteredController {
     public static void writeFile() throws FileNotFoundException {
         Registered.writeFile();
     }
-
+    
+    public static boolean addCustomer(Customer customer) {
+        return Registered.addCustomer(customer);
+    }
+    
+    public static boolean removeCustomer(int index) {
+        return Registered.removeCustomer(index);
+    }
+    
+    public static Customer viewCustomer(int index) {
+        return Registered.viewCustomer(index);
+    }
 }

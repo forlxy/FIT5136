@@ -15,7 +15,7 @@ public class Registered {
         customerList.add(admin);
     }
 
-    public static boolean addCumstomer(Customer customer) {
+    public static boolean addCustomer(Customer customer) {
         return customerList.add(customer); }
 
     public static boolean removeCustomer(int index) {

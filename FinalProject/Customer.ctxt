@@ -1,13 +1,11 @@
 #BlueJ class context
 comment0.target=Customer
-comment0.text=\n\ Write\ a\ description\ of\ class\ Customer\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=address\ balance\ phone
-comment1.target=Customer(java.lang.String,\ double,\ int)
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Customer\n
+comment1.params=address\ balance\ phone\ email\ password
+comment1.target=Customer(java.lang.String,\ double,\ java.lang.String,\ java.lang.String,\ java.lang.String)
 comment2.params=
-comment2.target=int\ getPhone()
+comment2.target=java.lang.String\ getPhone()
 comment3.params=phone
-comment3.target=void\ setPhone(int)
+comment3.target=void\ setPhone(java.lang.String)
 comment4.params=
 comment4.target=double\ getBalance()
 comment5.params=balance

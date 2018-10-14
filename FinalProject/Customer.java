@@ -4,11 +4,10 @@ public class Customer extends User{
     private String phone;
 
     public Customer(String address, double balance, String phone, String email, String password) {
+        super(email, password);
         this.address = address;
         this.balance = balance;
         this.phone = phone;
-        super.setEmail(email);
-        super.setPassword(password);
     }
 
     public String getPhone() {

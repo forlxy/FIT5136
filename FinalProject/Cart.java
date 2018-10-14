@@ -9,15 +9,22 @@ public class Cart {
     }
 
     public static boolean removeItem(int index) {
-         return productList.remove(index) != null;
-
+        return productList.remove(index) != null;
     }
 
     public static boolean updateCart(int index, int num) {
         if (num == 0)
             return productList.remove(index) != null;
-        else
-            return productList.set(index, productList.get(index).setProductNum(num)) != null;
+        else {
+            Product targetProduct = productList.get(index);
+            targetProduct.setProductNumber(num);
+            return productList.set(index, targetProduct) != null;
+        }
+    }
+
+    public static void initialize() {
+        if (productList == null)
+            productList = new ArrayList<Product>();
     }
 
     public static boolean clearCart(){
@@ -25,21 +32,21 @@ public class Cart {
     }
 
     public Cart() {
-        this.productList = new ArrayList<Product>();
+        initialize();
+    }
+
+    static {
+        initialize();
     }
 
     public static List<Product> getProductList() {
         return productList;
     }
 
-    public static void setProductList(List<Product> productList) {
-        productList = productList;
-    }
-
     public static double getTotalPrice(){
         double total = 0;
         for (Product p: productList){
-            total += p.getPrice() * p.getProductNum();
+            total += p.getPrice() * p.getProductNumber();
         }
         return total;
     }

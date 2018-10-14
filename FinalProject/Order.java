@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Order {
@@ -24,7 +25,7 @@ public class Order {
                 ", products=" + products +
                 ", time=" + time +
                 ", paidPrice=" + paidPrice +
-                "}";
+                '}';
     }
 
     @Override

@@ -6,10 +6,10 @@ public class Product {
 	String name;
 	int type;
 	double price;
-	Date shelfLife;
+	int shelfLife;
 	Date startDate;
 	double discountRate;
-	int sellType;
+	int sellType;  
 	int productNumber;
 	
 	public Product() {
@@ -25,7 +25,7 @@ public class Product {
 		
 	}
 	
-	public Product(int id, String name, int type, double price, Date shelfLife, 
+	public Product(int id, String name, int type, double price, int shelfLife, 
 				Date startDate, double discountRate, int sellType, int productNumber) {
 		this.id = id;
 		this.name = name;
@@ -70,11 +70,11 @@ public class Product {
 		this.price = price;
 	}
 	
-	public Date getShelfLife() {
+	public int getShelfLife() {
 		return shelfLife;
 	}
 	
-	public void setShelfLife(Date shelfLife) {
+	public void setShelfLife(int shelfLife) {
 		this.shelfLife = shelfLife;
 	}
 	

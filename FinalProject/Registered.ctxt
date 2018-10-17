@@ -1,7 +1,8 @@
 #BlueJ class context
-comment0.target=Registered
+comment0.params=
+comment0.target=Registered()
 comment1.params=
-comment1.target=Registered()
+comment1.target=void\ init()
 comment10.params=
 comment10.target=void\ writeFile()
 comment11.params=email\ password

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CartUI()
+comment1.params=row\ column
+comment1.target=boolean\ isCellEditable(int,\ int)
+comment2.params=
+comment2.target=void\ init()
+numComments=3

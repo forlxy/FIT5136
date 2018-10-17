@@ -144,13 +144,12 @@ public class GUI_register extends JFrame {
 		registerButton.setFont(new Font("sansserif",0,12));
 		registerButton.setText("Register");
 		registerButton.setVisible(true);
-		returnButton.addActionListener(new ActionListener(){
+		registerButton.addActionListener(new ActionListener(){
 		
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.setProperty("swing.defaultlaf", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-				javax.swing.SwingUtilities.invokeLater(new Runnable() {
-					public void run() {
+				
 						String address = addressTextfield.getText();
 						String phone = phoneTextfield.getText();
 						String email = emailTextField.getText();
@@ -162,9 +161,7 @@ public class GUI_register extends JFrame {
 						} else {
 							JOptionPane.showMessageDialog(null, "Sorry, register failed!");
 						}
-
-				}
-			});
+			
 		}
 	});
 

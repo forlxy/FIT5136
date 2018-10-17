@@ -10,11 +10,17 @@ public class Registered {
     private static List<Customer> customerList;
 
     public Registered() {
+        init();
+    }
+
+    public static void init() {
         customerList = new ArrayList<>();
         Customer admin = new Customer("adminAddress",9999999,"0999999999","admin@test.com", "12345678");
         customerList.add(admin);
     }
-
+    static {
+        init();
+    }
     public static boolean addCustomer(Customer customer) {
         return customerList.add(customer); }
 

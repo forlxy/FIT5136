@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=index\ productNumber
+comment0.target=boolean\ updateProduct(int,\ int)
+comment1.params=product
+comment1.target=boolean\ insertProduct(Product)
+comment2.params=index
+comment2.target=boolean\ removeProduct(int)
+numComments=3

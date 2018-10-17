@@ -97,5 +97,18 @@ public class Registered {
         pw.close();
         System.out.println("Write to CustomerDB done!");
     }
+    
+     public static int login(String email, String password) {
+        if (email.equals("admin@test.com") && password.equals("12345678")) {
+            return 0;
+        }else {
+            for (Customer customer : customerList) {
+                if (customer.getEmail().equals(email) && customer.getPassword().equals(password)) {
+                    return 1;
+                }
+            }
+        }
+        return 2;
+    }
 }
 

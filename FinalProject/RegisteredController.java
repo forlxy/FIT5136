@@ -20,4 +20,8 @@ public class RegisteredController {
     public static Customer viewCustomer(int index) {
         return Registered.viewCustomer(index);
     }
+    
+    public static int login(String email, String password){
+        return Registered.login(email, password);
+    }
 }

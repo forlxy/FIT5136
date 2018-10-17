@@ -10,4 +10,6 @@ comment4.params=index
 comment4.target=boolean\ removeCustomer(int)
 comment5.params=index
 comment5.target=Customer\ viewCustomer(int)
-numComments=6
+comment6.params=email\ password
+comment6.target=int\ login(java.lang.String,\ java.lang.String)
+numComments=7

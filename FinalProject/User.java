@@ -23,9 +23,9 @@ public class User {
      * @param newPassword
      * @Return true if the input password match the user password else return false.
      */
-    public boolean changePassword(String password, String newPassword) {
-        if (password.equals(getPassword()) && Registered.validatePassword(password)) {
-            setPassword(newPassword);
+    public boolean changePassword(String password) {
+        if (!password.equals(getPassword()) && Registered.validatePassword(password)) {
+            setPassword(password);
             return true;
         }
         return false;

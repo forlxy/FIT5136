@@ -13,6 +13,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import javax.swing.border.Border;
 import javax.swing.*;
+import java.io.FileNotFoundException;
 
 
 public class GUI_changePassword extends JFrame {
@@ -76,6 +77,11 @@ public class GUI_changePassword extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Customer currentUser = MainInterface.getCurrentUser();
                 if (currentUser.changePassword(newPasswordTextfield.getText())){
+                     try {
+                                RegisteredController.writeFile();
+                            } catch (FileNotFoundException ex) {
+                                ex.printStackTrace();
+                            }
                     dispose();
                 } else{
                     JOptionPane.showMessageDialog(null, "Sorry, the new password is invalid");

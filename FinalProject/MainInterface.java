@@ -1027,7 +1027,7 @@ public class MainInterface
 		panel1.setVisible(true);
 		
 		changePassButton = new JButton();
-		changePassButton.setBounds(80,250,120,35);
+		changePassButton.setBounds(80,250,150,35);
 		changePassButton.setBackground(new Color(214,217,223));
 		changePassButton.setForeground(new Color(0,0,0));
 		changePassButton.setEnabled(true);

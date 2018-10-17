@@ -18,11 +18,11 @@ public class Transaction {
 
     //For customer
     public static Order viewOrder(Customer customer, int index){
-        return viewOrder(customer).get(index);
+        return viewOrders(customer).get(index);
     }
 
     //Show All
-    public static List<Order> viewOrder(Customer customer){
+    public static List<Order> viewOrders(Customer customer){
         List<Order> customerOrder = new ArrayList<>();
         for (Order o : orderList) {
             if (o.getCustomer().getEmail() == customer.getEmail())
@@ -36,10 +36,19 @@ public class Transaction {
     }
 
     public Transaction() {
-        this.orderList = new ArrayList<>();
+        initialize();
     }
 
-    public static List<Order> getOrderList() {
+    static {
+        initialize();
+    }
+
+    public static void initialize() {
+        if (orderList == null)
+            orderList = new ArrayList<>();
+    }
+
+    public List<Order> getOrderList() {
         return orderList;
     }
 
@@ -66,7 +75,8 @@ public class Transaction {
                 String[] parts = line.split(",");
                 orderSize[i] = Integer.parseInt(arguments[i + 1]);
                 String id = parts[0];
-                Customer customer = Customer.getByEmail(parts[1]);
+                Customer customer = Registered.getByEmail(parts[1]);
+//                Customer customer = new Customer("address", 10, "phone", "kasaluoqi@gmail.com","password");
                 int listIndex = Integer.parseInt(parts[2]);
                 Date time = formatter.parse(parts[3]);
                 double paidPrice = Double.parseDouble(parts[4]);
@@ -79,18 +89,20 @@ public class Transaction {
                 for (int j = 0; j < orderSize[i]; j++) {
                     line = scanner.next();
                     String[] parts = line.split(",");
-                    String name = parts[0];
-                    int type = Integer.parseInt(parts[1]);
-                    double price = Double.parseDouble(parts[2]);
-                    int shelfLife = Integer.parseInt(parts[3]);
-                    Date startDate = formatter.parse(parts[4]);
-                    double discountRate = Double.parseDouble(parts[5]);
-                    int sellType = Integer.parseInt(parts[6]);
-                    int productNum = Integer.parseInt(parts[7]);
-                    Product tmpProduct = new Product(name, type, price, shelfLife, startDate, discountRate, sellType, productNum);
+                    int id = Integer.parseInt(parts[0]);
+                    String name = parts[1];
+                    int type = Integer.parseInt(parts[2]);
+                    double price = Double.parseDouble(parts[3]);
+                    int shelfLife = Integer.parseInt(parts[4]);
+                    Date startDate = formatter.parse(parts[5]);
+                    double discountRate = Double.parseDouble(parts[6]);
+                    int sellType = Integer.parseInt(parts[7]);
+                    int productNum = Integer.parseInt(parts[8]);
+                    Product tmpProduct = new Product(id, name, type, price, shelfLife, startDate, discountRate, sellType, productNum);
                     tmpList.add(tmpProduct);
                 }
-                Order tmp = map.get(i).setProducts(tmpList);
+                Order tmp = map.get(i);
+                tmp.setProducts(tmpList);
                 orderList.add(tmp);
             }
         }
@@ -125,11 +137,15 @@ public class Transaction {
 
         for (Order o : orderList) {
             for (Product p : o.getProducts()) {
+                sb.append(p.getId());
+                sb.append(',');
                 sb.append(p.getName());
+                sb.append(',');
+                sb.append(p.getType());
                 sb.append(',');
                 sb.append(p.getPrice());
                 sb.append(',');
-                sb.append(p.getShelfList());
+                sb.append(p.getShelfLife());
                 sb.append(',');
                 sb.append(formatter.format(p.getStartDate()));
                 sb.append(',');
@@ -137,7 +153,7 @@ public class Transaction {
                 sb.append(',');
                 sb.append(p.getSellType());
                 sb.append(',');
-                sb.append(p.getProductNum());
+                sb.append(p.getProductNumber());
                 sb.append('\n');
             }
         }
@@ -145,4 +161,5 @@ public class Transaction {
         pw.close();
         System.out.println("done!");
     }
+
 }

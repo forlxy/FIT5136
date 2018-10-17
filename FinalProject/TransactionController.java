@@ -14,8 +14,8 @@ public class TransactionController {
     }
 
     //Show All
-    public static List<Order> viewOrder(Customer customer) {
-        return Transaction.viewOrder(customer);
+    public static List<Order> viewOrders(Customer customer) {
+        return Transaction.viewOrders(customer);
     }
 
     public static void readFile() throws FileNotFoundException, ParseException {

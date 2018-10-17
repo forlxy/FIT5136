@@ -22,7 +22,7 @@ public class CartController {
     }
 
     public static boolean purchase() {
-        Order newOrder = new Order(UUID.randomUUID().toString(), currentUser, Cart.getProductList(), new Date(), Cart.getTotalPrice());
+        Order newOrder = new Order(UUID.randomUUID().toString(), Registered.getCurrentUser(), Cart.getProductList(), new Date(), Cart.getTotalPrice());
         return Transaction.addOrder(newOrder);
     }
 }

@@ -17,7 +17,7 @@ public class Product {
 		name = "";
 		type = 0;
 		price = 0;
-		shelfLife = new Date();
+		shelfLife = 0;
 		startDate = new Date();
 		discountRate = 1;
 		sellType = 0;

@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=User
+comment1.params=
+comment1.target=User()
+comment2.params=email\ password
+comment2.target=User(java.lang.String,\ java.lang.String)
+comment2.text=\n\ Constructor\ for\ class\ User\n\ @param\ email\n\ @param\ password\n
+comment3.params=password\ newPassword
+comment3.target=boolean\ changePassword(java.lang.String,\ java.lang.String)
+comment3.text=\n\ This\ is\ the\ method\ to\ allow\ user\ to\ change\ password\ \n\n\ @param\ password\ \ \n\ @param\ newPassword\n\ @Return\ true\ if\ the\ input\ password\ match\ the\ user\ password\ else\ return\ false.\n
+comment4.params=
+comment4.target=java.lang.String\ getEmail()
+comment5.params=email
+comment5.target=void\ setEmail(java.lang.String)
+comment6.params=
+comment6.target=java.lang.String\ getPassword()
+comment7.params=password
+comment7.target=void\ setPassword(java.lang.String)
+numComments=8

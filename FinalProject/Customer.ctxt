@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Customer
+comment1.params=address\ balance\ phone\ email\ password
+comment1.target=Customer(java.lang.String,\ double,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getPhone()
+comment3.params=phone
+comment3.target=void\ setPhone(java.lang.String)
+comment4.params=
+comment4.target=double\ getBalance()
+comment5.params=balance
+comment5.target=void\ setBalance(double)
+comment6.params=
+comment6.target=java.lang.String\ getAddress()
+comment7.params=address
+comment7.target=void\ setAddress(java.lang.String)
+numComments=8

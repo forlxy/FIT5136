@@ -1,15 +1,16 @@
 #BlueJ class context
-comment0.target=RegisteredController
+comment0.params=
+comment0.target=void\ readFile()
 comment1.params=
-comment1.target=void\ readFile()
-comment2.params=
-comment2.target=void\ writeFile()
-comment3.params=customer
-comment3.target=boolean\ addCustomer(Customer)
+comment1.target=void\ writeFile()
+comment2.params=customer
+comment2.target=boolean\ addCustomer(Customer)
+comment3.params=index
+comment3.target=boolean\ removeCustomer(int)
 comment4.params=index
-comment4.target=boolean\ removeCustomer(int)
-comment5.params=index
-comment5.target=Customer\ viewCustomer(int)
-comment6.params=email\ password
-comment6.target=int\ login(java.lang.String,\ java.lang.String)
+comment4.target=Customer\ viewCustomer(int)
+comment5.params=email\ password
+comment5.target=int\ login(java.lang.String,\ java.lang.String)
+comment6.params=email
+comment6.target=Customer\ getByEmail(java.lang.String)
 numComments=7

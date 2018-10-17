@@ -24,4 +24,8 @@ public class RegisteredController {
     public static int login(String email, String password){
         return Registered.login(email, password);
     }
+    
+    public static Customer getByEmail(String email) {
+        return Registered.getByEmail(email);
+    }
 }

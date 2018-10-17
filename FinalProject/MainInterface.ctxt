@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.params=
-comment0.target=MainInterface()
-comment1.params=row\ column
-comment1.target=boolean\ isCellEditable(int,\ int)
-comment2.params=
-comment2.target=void\ init()
-numComments=3
+comment0.target=Customer\ getCurrentUser()
+comment1.params=user\ state
+comment1.target=MainInterface(Customer,\ int)
+comment2.params=row\ column
+comment2.target=boolean\ isCellEditable(int,\ int)
+comment3.params=
+comment3.target=void\ init()
+numComments=4

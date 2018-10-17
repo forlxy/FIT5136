@@ -1,9 +1,6 @@
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.security.acl.Owner;
 import javax.swing.event.ListSelectionListener;
@@ -11,6 +8,8 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -47,26 +46,16 @@ public class MainInterface
     private Dialog checkStorageDialog;
     private Dialog cartDialog;
 
+    public static List<Product> shelf;
+
+
     public static Customer getCurrentUser(){
         return currentCustomer;
     }
 
-    public MainInterface(Customer user, int state)
-    {
-        currentCustomer = user;
+    public void updateShelf(){
 
-        mfvs = new JFrame("MFVS");
-
-        try {
-            ShelfController.readFile();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        buttonPanel = new JPanel();
-        bottomPanel = new JPanel();
-
-        DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 20) {
+        DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 //all cells false
@@ -74,7 +63,44 @@ public class MainInterface
             }
         };
 
-        List<Product> shelf = ShelfController.getShelfProducts();
+        shelf = ShelfController.getShelfProducts();
+
+        for (Product p: shelf){
+            Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.discountRate, p.sellType, p.getProductNumber()};
+
+            tableModel.addRow(data);
+        }
+        tableModel.fireTableDataChanged();
+        productTable.setModel(tableModel);
+
+    }
+    public MainInterface(Customer user, int state)
+    {
+        currentCustomer = user;
+
+
+
+        mfvs = new JFrame("MFVS");
+
+        try {
+            ShelfController.readFile();
+            TransactionController.readFile();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        buttonPanel = new JPanel();
+        bottomPanel = new JPanel();
+
+        DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
+            }
+        };
+
+        shelf = ShelfController.getShelfProducts();
 
         for (Product p: shelf){
             Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.discountRate, p.sellType, p.getProductNumber()};
@@ -90,7 +116,8 @@ public class MainInterface
                 Point point = mouseEvent.getPoint();
                 int row = table.rowAtPoint(point);
                 if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1 && row < shelf.size()) {
-                    new GUI_addToCart(shelf.get(row)).setVisible(true);
+                    JFrame jf = new GUI_addToCart(shelf.get(row));
+                    jf.setVisible(true);
                 }
             }
         });
@@ -148,12 +175,12 @@ public class MainInterface
 //        addButton.addActionListener(e -> addProductDialog.setVisible(true));
 //        editButton.addActionListener(e -> editProductDialog.setVisible(true));
 //        checkButton.addActionListener(e -> checkStorageDialog.setVisible(true));
-        productButton.addActionListener(e -> new ManageProductUI(mfvs, true).setVisible(true));
-        searchButton.addActionListener(e -> new SearchUI(mfvs, true).setVisible(true));
+        productButton.addActionListener(e -> new ManageProductUI().setVisible(true));
+        searchButton.addActionListener(e -> new SearchUI().setVisible(true));
 
-        cartButton.addActionListener(e -> new CartUI(mfvs, true).setVisible(true));
-        orderButton.addActionListener(e -> new OrderUI(mfvs, true).setVisible(true));
-        personButton.addActionListener(e -> new GUI_userInfo().setVisible(true));
+        cartButton.addActionListener(e -> new CartUI().setVisible(true));
+        orderButton.addActionListener(e -> new OrderUI().setVisible(true));
+        personButton.addActionListener(e -> new OrderUI().setVisible(true));
 
 
         mfvs.setLayout(new BorderLayout());
@@ -165,13 +192,11 @@ public class MainInterface
         mfvs.setVisible(true);
     }
 
-    public class CartUI extends JDialog
+    public class CartUI extends JFrame
     {
         private String[] tableColumn = {"ID", "Name", "FoodType", "Price", "Shelf Life"
                 , "Start Date", "Discount Rate", "Sell Type", "Number of Product"};
 
-        private ListSelectionListener listSelectionListener;
-        private JFrame mfvs;
         private JPanel buttonPanel;
         private JPanel bottomPanel;
         private JTable productTable;
@@ -188,13 +213,12 @@ public class MainInterface
         private Dialog checkStorageDialog;
         private Dialog cartDialog;
 
-        public CartUI(final JFrame frame, boolean modal)
+        public CartUI()
         {
-            super(frame, modal);
 
             buttonPanel = new JPanel();
             bottomPanel = new JPanel();
-            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 20) {
+            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
                 @Override
                 public boolean isCellEditable(int row, int column) {
                     //all cells false
@@ -218,7 +242,7 @@ public class MainInterface
                     Point point = mouseEvent.getPoint();
                     int row = table.rowAtPoint(point);
                     if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1 && row < cart.size()) {
-                        new GUI_editCart(row, cart.get(row)).setVisible(true);
+                        new GUI_editCart(productTable, row, cart.get(row)).setVisible(true);
                     }
                 }
             });
@@ -230,6 +254,20 @@ public class MainInterface
             closeButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
+                    dispose();
+                }
+            });
+
+            purchaseButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    if(CartController.purchase()) {
+                        try {
+                            TransactionController.writeFile();
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }
                     dispose();
                 }
             });
@@ -270,7 +308,7 @@ public class MainInterface
 
 
 
-    public class OrderUI extends JDialog
+    public class OrderUI extends JFrame
     {
         private String[] tableColumn = {"ID", "Customer", "Time", "Price"};
 
@@ -282,13 +320,13 @@ public class MainInterface
         private JButton closeButton;
 
 
-        public OrderUI(final JFrame frame, boolean modal)
+        public OrderUI()
         {
-            super(frame, modal);
+
 
             buttonPanel = new JPanel();
             bottomPanel = new JPanel();
-            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 20) {
+            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
                 @Override
                 public boolean isCellEditable(int row, int column) {
                     //all cells false
@@ -299,7 +337,7 @@ public class MainInterface
             List<Order> orders = TransactionController.viewOrders(getCurrentUser());
 
             for (Order o: orders){
-                Object[] data = {o.getId(), o.getTime(), o.getPaidPrice()};
+                Object[] data = {o.getId(), o.getCustomer().getEmail(), o.getTime(), o.getPaidPrice()};
 
                 tableModel.addRow(data);
             }
@@ -312,7 +350,7 @@ public class MainInterface
                     Point point = mouseEvent.getPoint();
                     int row = table.rowAtPoint(point);
                     if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1 && row < orders.size()) {
-                        new OrderProductUI(frame, modal, orders.get(row)).setVisible(true);
+                        new OrderProductUI(orders.get(row)).setVisible(true);
                     }
                 }
             });
@@ -345,7 +383,7 @@ public class MainInterface
     }
 
 
-    public class OrderProductUI extends JDialog
+    public class OrderProductUI extends JFrame
     {
         private String[] tableColumn = {"ID", "Name", "FoodType", "Price", "Shelf Life"
                 , "Start Date", "Discount Rate", "Sell Type", "Number of Product"};
@@ -358,14 +396,14 @@ public class MainInterface
         private JButton closeButton;
 
 
-        public OrderProductUI(final JFrame frame, boolean modal, Order order)
+        public OrderProductUI(Order order)
         {
-            super(frame, modal);
+
 
             buttonPanel = new JPanel();
             bottomPanel = new JPanel();
 
-            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 20) {
+            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
                 @Override
                 public boolean isCellEditable(int row, int column) {
                     //all cells false
@@ -410,7 +448,7 @@ public class MainInterface
 
 
 
-    public class ManageProductUI extends JDialog
+    public class ManageProductUI extends JFrame
     {
         private String[] tableColumn = {"ID", "Name", "FoodType", "Price", "Shelf Life"
                 , "Start Date", "Discount Rate", "Sell Type", "Number of Product"};
@@ -419,7 +457,7 @@ public class MainInterface
         private JFrame mfvs;
         private JPanel buttonPanel;
         private JPanel bottomPanel;
-        private JTable productTable;
+        public JTable productTable;
 
         private JButton addButton;
         private JButton closeButton;
@@ -432,14 +470,14 @@ public class MainInterface
         private Dialog checkStorageDialog;
         private Dialog cartDialog;
 
-        public ManageProductUI(final JFrame frame, boolean modal)
+        public ManageProductUI()
         {
-            super(frame, modal);
+
 
             buttonPanel = new JPanel();
             bottomPanel = new JPanel();
 
-            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 20) {
+            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
                 @Override
                 public boolean isCellEditable(int row, int column) {
                     //all cells false
@@ -447,7 +485,7 @@ public class MainInterface
                 }
             };
 
-            List<Product> shelf = ShelfController.getShelfProducts();
+            shelf = ShelfController.getShelfProducts();
 
             for (Product p: shelf){
                 Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.discountRate, p.sellType, p.getProductNumber()};
@@ -464,11 +502,20 @@ public class MainInterface
                     int row = table.rowAtPoint(point);
                     if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1 && row < shelf.size()) {
 //                        new GUI_shelf(row, shelf.get(row)).setVisible(true);
+                        new GUI_shelfEditDelete(productTable, row, shelf.get(row));
                     }
                 }
             });
 
             addButton = new JButton("Add Product");
+            addButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    JFrame jf = new GUI_shelfAdd(productTable);
+                    jf.setVisible(true);
+                }
+            });
+
             closeButton = new JButton("Close");
 
             closeButton.addActionListener(new ActionListener() {
@@ -499,7 +546,7 @@ public class MainInterface
             cartDialog.setBounds(300, 300, 200, 170);
 
             buttonPanel.add(addButton);
-            
+
             bottomPanel.add(closeButton);
 
             setLayout(new BorderLayout());
@@ -513,7 +560,7 @@ public class MainInterface
     }
 
 
-    public class SearchUI extends JDialog
+    public class SearchUI extends JFrame
     {
         private String[] tableColumn = {"ID", "Name", "FoodType", "Price", "Shelf Life"
                 , "Start Date", "Discount Rate", "Sell Type", "Number of Product"};
@@ -524,7 +571,6 @@ public class MainInterface
         private JPanel bottomPanel;
         private JTable productTable;
 
-        public List<Product> shelf;
 
         private JTextField searchTextField;
 
@@ -533,14 +579,14 @@ public class MainInterface
         private JButton purchaseButton;
         private JButton searchButton;
 
-        public SearchUI(final JFrame frame, boolean modal)
+        public SearchUI()
         {
-            super(frame, modal);
+
 
             buttonPanel = new JPanel();
             bottomPanel = new JPanel();
 
-            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 20) {
+            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
                 @Override
                 public boolean isCellEditable(int row, int column) {
                     //all cells false
@@ -573,9 +619,9 @@ public class MainInterface
 
             searchTextField = new JTextField();
 
-            
+
             searchTextField.setBounds(144,62,117,31);
-            
+
             clearButton = new JButton("Clear");
             closeButton = new JButton("Close");
             purchaseButton = new JButton("Purchase");
@@ -610,7 +656,7 @@ public class MainInterface
 
             buttonPanel.add(searchTextField);
             buttonPanel.add(searchButton);
-            
+
             bottomPanel.add(closeButton);
 
             setLayout(new BorderLayout());
@@ -676,6 +722,17 @@ public class MainInterface
             addToCart_add_button.setText("Add");
             addToCart_add_button.setVisible(true);
 
+            addToCart_add_button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    if(!addToCart_number_textfield.getText().equals("")&& Integer.parseInt(addToCart_number_textfield.getText()) > 0){
+                        product.setProductNumber(Integer.parseInt(addToCart_number_textfield.getText()));
+                        CartController.addItem(product);
+                    }
+                    dispose();
+                }
+            });
+
             addToCart_cancel_button = new JButton();
             addToCart_cancel_button.setBounds(167,109,90,35);
             addToCart_cancel_button.setBackground(new Color(214,217,223));
@@ -684,6 +741,7 @@ public class MainInterface
             addToCart_cancel_button.setFont(new Font("sansserif",0,12));
             addToCart_cancel_button.setText("Cancel");
             addToCart_cancel_button.setVisible(true);
+            addToCart_cancel_button.addActionListener(e -> dispose());
 
             addToCart_number_label = new JLabel();
             addToCart_number_label.setBounds(57,61,90,35);
@@ -760,9 +818,34 @@ public class MainInterface
         private JPanel editCart_panel;
         private JLabel editCart_title;
 
-        //Constructor
-        public GUI_editCart(int row, Product product){
+        JTable productTable;
 
+
+        public void updateCart(){
+            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
+
+            List<Product> cart = CartController.getProductList();
+
+            for (Product p: cart){
+                Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.discountRate, p.sellType, p.getProductNumber()};
+
+                tableModel.addRow(data);
+            }
+
+            tableModel.fireTableDataChanged();
+            productTable.setModel(tableModel);
+
+        }
+        //Constructor
+        public GUI_editCart(JTable productTable, int row, Product product){
+
+            this.productTable = productTable;
             this.setTitle("GUI_editCart");
             this.setSize(500,400);
             //menu generate method
@@ -845,6 +928,7 @@ public class MainInterface
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
                     CartController.updateCart(row, Integer.parseInt(editCart_number_textfield.getText()));
+                    updateCart();
                     dispose();
                 }
             });
@@ -852,6 +936,7 @@ public class MainInterface
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
                     CartController.removeItem(row);
+                    updateCart();
                     dispose();
                 }
             });
@@ -902,6 +987,727 @@ public class MainInterface
         }
 
 
+    }
+
+
+
+
+
+    public class GUI_shelfAdd extends JFrame {
+
+        private JMenuBar menuBar;
+        private JLabel shelfAdd_product_id_label;
+        private JButton shelfAdd_cancel_button;
+        private JButton shelfAdd_confirm_button;
+        private JLabel shelfAdd_discountRate_label;
+        private JLabel shelfAdd_name_label;
+        private JLabel shelfAdd_number_label;
+        private JLabel shelfAdd_price_label;
+        private JLabel shelfAdd_sellType_label;
+        private JLabel shelfAdd_shelfLife_label;
+        private JLabel shelfAdd_startDate_label;
+        private JLabel shelfAdd_title_label;
+        private JLabel shelf_type_label;
+        private JTextField shelf_discountRate_ltextfield;
+        private JPanel shelfAdd_pannel;
+        private JTextField shelf_id_textfield;
+        private JTextField shelf_name_textfield;
+        private JTextField shelf_price_textfield4;
+        private JTextField shelf_productNumber_textfield;
+        private JTextField shelf_sellType_textfield;
+        private JTextField shelf_shelfLife_textfield;
+        private JTextField shelf_startDate_textfield;
+        private JTextField shelf_type_textfield;
+
+        private JTable productTable;
+
+        public void updateManageShelf(){
+
+            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
+
+            shelf = ShelfController.getShelfProducts();
+
+            for (Product p: shelf){
+                Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.discountRate, p.sellType, p.getProductNumber()};
+
+                tableModel.addRow(data);
+            }
+            tableModel.fireTableDataChanged();
+            productTable.setModel(tableModel);
+
+        }
+        //Constructor
+        public GUI_shelfAdd(JTable productTable){
+
+            this.productTable = productTable;
+            this.setTitle("GUI_shelfAdd");
+            this.setSize(533,504);
+            //menu generate method
+            generateMenu();
+            this.setJMenuBar(menuBar);
+
+            //pane with null layout
+            JPanel contentPane = new JPanel(null);
+            contentPane.setPreferredSize(new Dimension(533,504));
+            contentPane.setBackground(new Color(192,192,192));
+
+
+            shelfAdd_product_id_label = new JLabel();
+            shelfAdd_product_id_label.setBounds(74,42,90,35);
+            shelfAdd_product_id_label.setBackground(new Color(214,217,223));
+            shelfAdd_product_id_label.setForeground(new Color(0,0,0));
+            shelfAdd_product_id_label.setEnabled(true);
+            shelfAdd_product_id_label.setFont(new Font("sansserif",0,12));
+            shelfAdd_product_id_label.setText("ID:");
+            shelfAdd_product_id_label.setVisible(true);
+
+            shelfAdd_cancel_button = new JButton();
+            shelfAdd_cancel_button.setBounds(177,409,90,35);
+            shelfAdd_cancel_button.setBackground(new Color(214,217,223));
+            shelfAdd_cancel_button.setForeground(new Color(0,0,0));
+            shelfAdd_cancel_button.setEnabled(true);
+            shelfAdd_cancel_button.setFont(new Font("sansserif",0,12));
+            shelfAdd_cancel_button.setText("Cancel");
+            shelfAdd_cancel_button.setVisible(true);
+
+            shelfAdd_cancel_button.addActionListener(e -> dispose());
+
+            shelfAdd_confirm_button = new JButton();
+            shelfAdd_confirm_button.setBounds(50,409,90,35);
+            shelfAdd_confirm_button.setBackground(new Color(214,217,223));
+            shelfAdd_confirm_button.setForeground(new Color(0,0,0));
+            shelfAdd_confirm_button.setEnabled(true);
+            shelfAdd_confirm_button.setFont(new Font("sansserif",0,12));
+            shelfAdd_confirm_button.setText("Confirm");
+            shelfAdd_confirm_button.setVisible(true);
+
+            shelfAdd_confirm_button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+                    try {
+                        Product product = new Product(Integer.parseInt(shelf_id_textfield.getText()), shelf_name_textfield.getText(), Integer.parseInt(shelf_type_textfield.getText()),
+                                Double.parseDouble(shelf_price_textfield4.getText()), Integer.parseInt(shelf_shelfLife_textfield.getText()), formatter.parse(shelf_startDate_textfield.getText()),
+                                Double.parseDouble(shelf_discountRate_ltextfield.getText()), Integer.parseInt(shelf_sellType_textfield.getText()), Integer.parseInt(shelf_productNumber_textfield.getText()));
+
+                        ShelfController.insertProduct(product);
+                        updateManageShelf();
+                        updateShelf();
+                        dispose();
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            shelfAdd_discountRate_label = new JLabel();
+            shelfAdd_discountRate_label.setBounds(74,282,90,35);
+            shelfAdd_discountRate_label.setBackground(new Color(214,217,223));
+            shelfAdd_discountRate_label.setForeground(new Color(0,0,0));
+            shelfAdd_discountRate_label.setEnabled(true);
+            shelfAdd_discountRate_label.setFont(new Font("sansserif",0,12));
+            shelfAdd_discountRate_label.setText("Discount Rate:");
+            shelfAdd_discountRate_label.setVisible(true);
+
+            shelfAdd_name_label = new JLabel();
+            shelfAdd_name_label.setBounds(74,82,90,35);
+            shelfAdd_name_label.setBackground(new Color(214,217,223));
+            shelfAdd_name_label.setForeground(new Color(0,0,0));
+            shelfAdd_name_label.setEnabled(true);
+            shelfAdd_name_label.setFont(new Font("sansserif",0,12));
+            shelfAdd_name_label.setText("Name:");
+            shelfAdd_name_label.setVisible(true);
+
+            shelfAdd_number_label = new JLabel();
+            shelfAdd_number_label.setBounds(74,362,90,29);
+            shelfAdd_number_label.setBackground(new Color(214,217,223));
+            shelfAdd_number_label.setForeground(new Color(0,0,0));
+            shelfAdd_number_label.setEnabled(true);
+            shelfAdd_number_label.setFont(new Font("sansserif",0,12));
+            shelfAdd_number_label.setText("Number:");
+            shelfAdd_number_label.setVisible(true);
+
+            shelfAdd_price_label = new JLabel();
+            shelfAdd_price_label.setBounds(74,162,90,35);
+            shelfAdd_price_label.setBackground(new Color(214,217,223));
+            shelfAdd_price_label.setForeground(new Color(0,0,0));
+            shelfAdd_price_label.setEnabled(true);
+            shelfAdd_price_label.setFont(new Font("sansserif",0,12));
+            shelfAdd_price_label.setText("Price:");
+            shelfAdd_price_label.setVisible(true);
+
+            shelfAdd_sellType_label = new JLabel();
+            shelfAdd_sellType_label.setBounds(74,322,90,35);
+            shelfAdd_sellType_label.setBackground(new Color(214,217,223));
+            shelfAdd_sellType_label.setForeground(new Color(0,0,0));
+            shelfAdd_sellType_label.setEnabled(true);
+            shelfAdd_sellType_label.setFont(new Font("sansserif",0,12));
+            shelfAdd_sellType_label.setText("Sell Type:");
+            shelfAdd_sellType_label.setVisible(true);
+
+            shelfAdd_shelfLife_label = new JLabel();
+            shelfAdd_shelfLife_label.setBounds(74,202,90,35);
+            shelfAdd_shelfLife_label.setBackground(new Color(214,217,223));
+            shelfAdd_shelfLife_label.setForeground(new Color(0,0,0));
+            shelfAdd_shelfLife_label.setEnabled(true);
+            shelfAdd_shelfLife_label.setFont(new Font("sansserif",0,12));
+            shelfAdd_shelfLife_label.setText("ShelfLife:");
+            shelfAdd_shelfLife_label.setVisible(true);
+
+            shelfAdd_startDate_label = new JLabel();
+            shelfAdd_startDate_label.setBounds(74,242,90,35);
+            shelfAdd_startDate_label.setBackground(new Color(214,217,223));
+            shelfAdd_startDate_label.setForeground(new Color(0,0,0));
+            shelfAdd_startDate_label.setEnabled(true);
+            shelfAdd_startDate_label.setFont(new Font("sansserif",0,12));
+            shelfAdd_startDate_label.setText("Start Date:");
+            shelfAdd_startDate_label.setVisible(true);
+
+            shelfAdd_title_label = new JLabel();
+            shelfAdd_title_label.setBounds(96,5,220,35);
+            shelfAdd_title_label.setBackground(new Color(214,217,223));
+            shelfAdd_title_label.setForeground(new Color(0,0,0));
+            shelfAdd_title_label.setEnabled(true);
+            shelfAdd_title_label.setFont(new Font("SansSerif",0,20));
+            shelfAdd_title_label.setText("Add Product");
+            shelfAdd_title_label.setVisible(true);
+
+            shelf_type_label = new JLabel();
+            shelf_type_label.setBounds(74,122,90,35);
+            shelf_type_label.setBackground(new Color(214,217,223));
+            shelf_type_label.setForeground(new Color(0,0,0));
+            shelf_type_label.setEnabled(true);
+            shelf_type_label.setFont(new Font("sansserif",0,12));
+            shelf_type_label.setText("Type:");
+            shelf_type_label.setVisible(true);
+
+            shelf_discountRate_ltextfield = new JTextField();
+            shelf_discountRate_ltextfield.setBounds(163,282,90,35);
+            shelf_discountRate_ltextfield.setBackground(new Color(255,255,255));
+            shelf_discountRate_ltextfield.setForeground(new Color(0,0,0));
+            shelf_discountRate_ltextfield.setEnabled(true);
+            shelf_discountRate_ltextfield.setFont(new Font("sansserif",0,12));
+            shelf_discountRate_ltextfield.setText("");
+            shelf_discountRate_ltextfield.setVisible(true);
+
+            shelfAdd_pannel = new JPanel(null);
+            shelfAdd_pannel.setBorder(BorderFactory.createEtchedBorder(1));
+            shelfAdd_pannel.setBounds(81,9,322,474);
+            shelfAdd_pannel.setBackground(new Color(214,217,223));
+            shelfAdd_pannel.setForeground(new Color(0,0,0));
+            shelfAdd_pannel.setEnabled(true);
+            shelfAdd_pannel.setFont(new Font("sansserif",0,12));
+            shelfAdd_pannel.setVisible(true);
+
+            shelf_id_textfield = new JTextField();
+            shelf_id_textfield.setBounds(163,42,90,35);
+            shelf_id_textfield.setBackground(new Color(255,255,255));
+            shelf_id_textfield.setForeground(new Color(0,0,0));
+            shelf_id_textfield.setEnabled(true);
+            shelf_id_textfield.setFont(new Font("sansserif",0,12));
+            shelf_id_textfield.setText("");
+            shelf_id_textfield.setVisible(true);
+
+            shelf_name_textfield = new JTextField();
+            shelf_name_textfield.setBounds(163,82,90,35);
+            shelf_name_textfield.setBackground(new Color(255,255,255));
+            shelf_name_textfield.setForeground(new Color(0,0,0));
+            shelf_name_textfield.setEnabled(true);
+            shelf_name_textfield.setFont(new Font("sansserif",0,12));
+            shelf_name_textfield.setText("");
+            shelf_name_textfield.setVisible(true);
+
+            shelf_price_textfield4 = new JTextField();
+            shelf_price_textfield4.setBounds(163,162,90,35);
+            shelf_price_textfield4.setBackground(new Color(255,255,255));
+            shelf_price_textfield4.setForeground(new Color(0,0,0));
+            shelf_price_textfield4.setEnabled(true);
+            shelf_price_textfield4.setFont(new Font("sansserif",0,12));
+            shelf_price_textfield4.setText("");
+            shelf_price_textfield4.setVisible(true);
+
+            shelf_productNumber_textfield = new JTextField();
+            shelf_productNumber_textfield.setBounds(163,362,90,35);
+            shelf_productNumber_textfield.setBackground(new Color(255,255,255));
+            shelf_productNumber_textfield.setForeground(new Color(0,0,0));
+            shelf_productNumber_textfield.setEnabled(true);
+            shelf_productNumber_textfield.setFont(new Font("sansserif",0,12));
+            shelf_productNumber_textfield.setText("");
+            shelf_productNumber_textfield.setVisible(true);
+
+            shelf_sellType_textfield = new JTextField();
+            shelf_sellType_textfield.setBounds(163,322,90,35);
+            shelf_sellType_textfield.setBackground(new Color(255,255,255));
+            shelf_sellType_textfield.setForeground(new Color(0,0,0));
+            shelf_sellType_textfield.setEnabled(true);
+            shelf_sellType_textfield.setFont(new Font("sansserif",0,12));
+            shelf_sellType_textfield.setText("");
+            shelf_sellType_textfield.setVisible(true);
+
+            shelf_shelfLife_textfield = new JTextField();
+            shelf_shelfLife_textfield.setBounds(163,202,90,35);
+            shelf_shelfLife_textfield.setBackground(new Color(255,255,255));
+            shelf_shelfLife_textfield.setForeground(new Color(0,0,0));
+            shelf_shelfLife_textfield.setEnabled(true);
+            shelf_shelfLife_textfield.setFont(new Font("sansserif",0,12));
+            shelf_shelfLife_textfield.setText("");
+            shelf_shelfLife_textfield.setVisible(true);
+
+            shelf_startDate_textfield = new JTextField();
+            shelf_startDate_textfield.setBounds(163,242,90,35);
+            shelf_startDate_textfield.setBackground(new Color(255,255,255));
+            shelf_startDate_textfield.setForeground(new Color(0,0,0));
+            shelf_startDate_textfield.setEnabled(true);
+            shelf_startDate_textfield.setFont(new Font("sansserif",0,12));
+            shelf_startDate_textfield.setText("");
+            shelf_startDate_textfield.setVisible(true);
+
+            shelf_type_textfield = new JTextField();
+            shelf_type_textfield.setBounds(163,122,90,35);
+            shelf_type_textfield.setBackground(new Color(255,255,255));
+            shelf_type_textfield.setForeground(new Color(0,0,0));
+            shelf_type_textfield.setEnabled(true);
+            shelf_type_textfield.setFont(new Font("sansserif",0,12));
+            shelf_type_textfield.setText("");
+            shelf_type_textfield.setVisible(true);
+
+            //adding components to contentPane panel
+            shelfAdd_pannel.add(shelfAdd_product_id_label);
+            shelfAdd_pannel.add(shelfAdd_cancel_button);
+            shelfAdd_pannel.add(shelfAdd_confirm_button);
+            shelfAdd_pannel.add(shelfAdd_discountRate_label);
+            shelfAdd_pannel.add(shelfAdd_name_label);
+            shelfAdd_pannel.add(shelfAdd_number_label);
+            shelfAdd_pannel.add(shelfAdd_price_label);
+            shelfAdd_pannel.add(shelfAdd_sellType_label);
+            shelfAdd_pannel.add(shelfAdd_shelfLife_label);
+            shelfAdd_pannel.add(shelfAdd_startDate_label);
+            shelfAdd_pannel.add(shelfAdd_title_label);
+            shelfAdd_pannel.add(shelf_type_label);
+            shelfAdd_pannel.add(shelf_discountRate_ltextfield);
+            contentPane.add(shelfAdd_pannel);
+            shelfAdd_pannel.add(shelf_id_textfield);
+            shelfAdd_pannel.add(shelf_name_textfield);
+            shelfAdd_pannel.add(shelf_price_textfield4);
+            shelfAdd_pannel.add(shelf_productNumber_textfield);
+            shelfAdd_pannel.add(shelf_sellType_textfield);
+            shelfAdd_pannel.add(shelf_shelfLife_textfield);
+            shelfAdd_pannel.add(shelf_startDate_textfield);
+            shelfAdd_pannel.add(shelf_type_textfield);
+
+            //adding panel to JFrame and seting of window position and close operation
+            this.add(contentPane);
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setLocationRelativeTo(null);
+            this.pack();
+            this.setVisible(true);
+        }
+
+        //method for generate menu
+        public void generateMenu(){
+            menuBar = new JMenuBar();
+
+            JMenu file = new JMenu("File");
+            JMenu tools = new JMenu("Tools");
+            JMenu help = new JMenu("Help");
+
+            JMenuItem open = new JMenuItem("Open   ");
+            JMenuItem save = new JMenuItem("Save   ");
+            JMenuItem exit = new JMenuItem("Exit   ");
+            JMenuItem preferences = new JMenuItem("Preferences   ");
+            JMenuItem about = new JMenuItem("About   ");
+
+
+            file.add(open);
+            file.add(save);
+            file.addSeparator();
+            file.add(exit);
+            tools.add(preferences);
+            help.add(about);
+
+            menuBar.add(file);
+            menuBar.add(tools);
+            menuBar.add(help);
+        }
+
+
+    }
+
+    public class GUI_shelfEditDelete extends JFrame {
+
+        private JMenuBar menuBar;
+        private JLabel addToShelf_product_id_label;
+        private JButton shelfAdd_edit_button;
+        private JButton shelfEditDelete_cancel_button;
+        private JButton shelfEditDelete_confirm_button;
+        private JLabel shelfEditDelete_discountRate_label;
+        private JTextField shelfEditDelete_discountRate_ltextfield;
+        private JTextField shelfEditDelete_id_textfield;
+        private JLabel shelfEditDelete_name_label;
+        private JTextField shelfEditDelete_name_textfield;
+        private JLabel shelfEditDelete_number_label;
+        private JTextField shelfEditDelete_number_textfield;
+        private JLabel shelfEditDelete_price_label;
+        private JLabel shelfEditDelete_sellType_label;
+        private JTextField shelfEditDelete_sellType_textfield;
+        private JLabel shelfEditDelete_shelfLife_label;
+        private JTextField shelfEditDelete_shelfLife_textfield;
+        private JLabel shelfEditDelete_startDate_label;
+        private JTextField shelfEditDelete_startDate_textfield;
+        private JLabel shelfEditDelete_title_label;
+        private JTextField shelfEditDelete_type_textfield;
+        private JLabel shelf_type_label;
+        private JPanel shelfEditDelete_pannel;
+        private JTextField shelf_price_textfield4;
+
+        JTable productTable;
+
+
+        public void updateManageShelf(){
+
+            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
+
+            shelf = ShelfController.getShelfProducts();
+
+            for (Product p: shelf){
+                Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.discountRate, p.sellType, p.getProductNumber()};
+
+                tableModel.addRow(data);
+            }
+            tableModel.fireTableDataChanged();
+            productTable.setModel(tableModel);
+
+        }
+
+        //Constructor
+        public GUI_shelfEditDelete(JTable productTable, int row, Product product){
+
+            this.productTable = productTable;
+            this.setTitle("GUI_shelfEditDelete");
+            this.setSize(533,504);
+            //menu generate method
+            generateMenu();
+            this.setJMenuBar(menuBar);
+
+            //pane with null layout
+            JPanel contentPane = new JPanel(null);
+            contentPane.setPreferredSize(new Dimension(533,504));
+            contentPane.setBackground(new Color(192,192,192));
+
+
+            addToShelf_product_id_label = new JLabel();
+            addToShelf_product_id_label.setBounds(74,42,90,35);
+            addToShelf_product_id_label.setBackground(new Color(214,217,223));
+            addToShelf_product_id_label.setForeground(new Color(0,0,0));
+            addToShelf_product_id_label.setEnabled(true);
+            addToShelf_product_id_label.setFont(new Font("sansserif",0,12));
+            addToShelf_product_id_label.setText("ID:");
+            addToShelf_product_id_label.setVisible(true);
+
+            shelfAdd_edit_button = new JButton();
+            shelfAdd_edit_button.setBounds(122,419,75,35);
+            shelfAdd_edit_button.setBackground(new Color(214,217,223));
+            shelfAdd_edit_button.setForeground(new Color(0,0,0));
+            shelfAdd_edit_button.setEnabled(true);
+            shelfAdd_edit_button.setFont(new Font("sansserif",0,12));
+            shelfAdd_edit_button.setText("Delete");
+            shelfAdd_edit_button.setVisible(true);
+
+            shelfAdd_edit_button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    ShelfController.removeProduct(row);
+                    updateManageShelf();
+                    updateShelf();
+                    dispose();
+                }
+            });
+
+            shelfEditDelete_cancel_button = new JButton();
+            shelfEditDelete_cancel_button.setBounds(213,419,75,35);
+            shelfEditDelete_cancel_button.setBackground(new Color(214,217,223));
+            shelfEditDelete_cancel_button.setForeground(new Color(0,0,0));
+            shelfEditDelete_cancel_button.setEnabled(true);
+            shelfEditDelete_cancel_button.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_cancel_button.setText("Cancel");
+            shelfEditDelete_cancel_button.setVisible(true);
+
+            shelfEditDelete_cancel_button.addActionListener(e -> dispose());
+
+            shelfEditDelete_confirm_button = new JButton();
+            shelfEditDelete_confirm_button.setBounds(33,419,75,35);
+            shelfEditDelete_confirm_button.setBackground(new Color(214,217,223));
+            shelfEditDelete_confirm_button.setForeground(new Color(0,0,0));
+            shelfEditDelete_confirm_button.setEnabled(true);
+            shelfEditDelete_confirm_button.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_confirm_button.setText("Confirm");
+            shelfEditDelete_confirm_button.setVisible(true);
+
+
+
+            shelfEditDelete_confirm_button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+                    try {
+                        Product product = new Product(Integer.parseInt(shelfEditDelete_id_textfield.getText()), shelfEditDelete_name_textfield.getText(), Integer.parseInt(shelfEditDelete_type_textfield.getText()),
+                                Double.parseDouble(shelf_price_textfield4.getText()), Integer.parseInt(shelfEditDelete_shelfLife_textfield.getText()), formatter.parse(shelfEditDelete_startDate_textfield.getText()),
+                                Double.parseDouble(shelfEditDelete_discountRate_ltextfield.getText()), Integer.parseInt(shelfEditDelete_sellType_textfield.getText()), Integer.parseInt(shelfEditDelete_number_textfield.getText()));
+
+                        ShelfController.updateProduct(row, product);
+                        updateManageShelf();
+                        updateShelf();
+                        dispose();
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            shelfEditDelete_discountRate_label = new JLabel();
+            shelfEditDelete_discountRate_label.setBounds(74,282,90,35);
+            shelfEditDelete_discountRate_label.setBackground(new Color(214,217,223));
+            shelfEditDelete_discountRate_label.setForeground(new Color(0,0,0));
+            shelfEditDelete_discountRate_label.setEnabled(true);
+            shelfEditDelete_discountRate_label.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_discountRate_label.setText("Discount Rate:");
+            shelfEditDelete_discountRate_label.setVisible(true);
+
+            shelfEditDelete_discountRate_ltextfield = new JTextField();
+            shelfEditDelete_discountRate_ltextfield.setBounds(163,282,90,35);
+            shelfEditDelete_discountRate_ltextfield.setBackground(new Color(255,255,255));
+            shelfEditDelete_discountRate_ltextfield.setForeground(new Color(0,0,0));
+            shelfEditDelete_discountRate_ltextfield.setEnabled(true);
+            shelfEditDelete_discountRate_ltextfield.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_discountRate_ltextfield.setText("" + product.getDiscountRate());
+            shelfEditDelete_discountRate_ltextfield.setVisible(true);
+
+            shelfEditDelete_id_textfield = new JTextField();
+            shelfEditDelete_id_textfield.setBounds(163,42,90,35);
+            shelfEditDelete_id_textfield.setBackground(new Color(255,255,255));
+            shelfEditDelete_id_textfield.setForeground(new Color(0,0,0));
+            shelfEditDelete_id_textfield.setEnabled(true);
+            shelfEditDelete_id_textfield.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_id_textfield.setText(""+ product.getId());
+            shelfEditDelete_id_textfield.setVisible(true);
+
+            shelfEditDelete_name_label = new JLabel();
+            shelfEditDelete_name_label.setBounds(74,82,90,35);
+            shelfEditDelete_name_label.setBackground(new Color(214,217,223));
+            shelfEditDelete_name_label.setForeground(new Color(0,0,0));
+            shelfEditDelete_name_label.setEnabled(true);
+            shelfEditDelete_name_label.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_name_label.setText("Name:");
+            shelfEditDelete_name_label.setVisible(true);
+
+            shelfEditDelete_name_textfield = new JTextField();
+            shelfEditDelete_name_textfield.setBounds(163,82,90,35);
+            shelfEditDelete_name_textfield.setBackground(new Color(255,255,255));
+            shelfEditDelete_name_textfield.setForeground(new Color(0,0,0));
+            shelfEditDelete_name_textfield.setEnabled(true);
+            shelfEditDelete_name_textfield.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_name_textfield.setText(""+ product.getName());
+            shelfEditDelete_name_textfield.setVisible(true);
+
+            shelfEditDelete_number_label = new JLabel();
+            shelfEditDelete_number_label.setBounds(74,362,90,29);
+            shelfEditDelete_number_label.setBackground(new Color(214,217,223));
+            shelfEditDelete_number_label.setForeground(new Color(0,0,0));
+            shelfEditDelete_number_label.setEnabled(true);
+            shelfEditDelete_number_label.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_number_label.setText("Number:");
+            shelfEditDelete_number_label.setVisible(true);
+
+            shelfEditDelete_number_textfield = new JTextField();
+            shelfEditDelete_number_textfield.setBounds(163,361,90,35);
+            shelfEditDelete_number_textfield.setBackground(new Color(255,255,255));
+            shelfEditDelete_number_textfield.setForeground(new Color(0,0,0));
+            shelfEditDelete_number_textfield.setEnabled(true);
+            shelfEditDelete_number_textfield.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_number_textfield.setText("" + product.getProductNumber());
+            shelfEditDelete_number_textfield.setVisible(true);
+
+            shelfEditDelete_price_label = new JLabel();
+            shelfEditDelete_price_label.setBounds(74,162,90,35);
+            shelfEditDelete_price_label.setBackground(new Color(214,217,223));
+            shelfEditDelete_price_label.setForeground(new Color(0,0,0));
+            shelfEditDelete_price_label.setEnabled(true);
+            shelfEditDelete_price_label.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_price_label.setText("Price:");
+            shelfEditDelete_price_label.setVisible(true);
+
+            shelfEditDelete_sellType_label = new JLabel();
+            shelfEditDelete_sellType_label.setBounds(74,322,90,35);
+            shelfEditDelete_sellType_label.setBackground(new Color(214,217,223));
+            shelfEditDelete_sellType_label.setForeground(new Color(0,0,0));
+            shelfEditDelete_sellType_label.setEnabled(true);
+            shelfEditDelete_sellType_label.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_sellType_label.setText("Sell Type:");
+            shelfEditDelete_sellType_label.setVisible(true);
+
+            shelfEditDelete_sellType_textfield = new JTextField();
+            shelfEditDelete_sellType_textfield.setBounds(163,322,90,35);
+            shelfEditDelete_sellType_textfield.setBackground(new Color(255,255,255));
+            shelfEditDelete_sellType_textfield.setForeground(new Color(0,0,0));
+            shelfEditDelete_sellType_textfield.setEnabled(true);
+            shelfEditDelete_sellType_textfield.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_sellType_textfield.setText("" + product.getSellType());
+            shelfEditDelete_sellType_textfield.setVisible(true);
+
+            shelfEditDelete_shelfLife_label = new JLabel();
+            shelfEditDelete_shelfLife_label.setBounds(74,202,90,35);
+            shelfEditDelete_shelfLife_label.setBackground(new Color(214,217,223));
+            shelfEditDelete_shelfLife_label.setForeground(new Color(0,0,0));
+            shelfEditDelete_shelfLife_label.setEnabled(true);
+            shelfEditDelete_shelfLife_label.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_shelfLife_label.setText("ShelfLife:");
+            shelfEditDelete_shelfLife_label.setVisible(true);
+
+            shelfEditDelete_shelfLife_textfield = new JTextField();
+            shelfEditDelete_shelfLife_textfield.setBounds(163,202,90,35);
+            shelfEditDelete_shelfLife_textfield.setBackground(new Color(255,255,255));
+            shelfEditDelete_shelfLife_textfield.setForeground(new Color(0,0,0));
+            shelfEditDelete_shelfLife_textfield.setEnabled(true);
+            shelfEditDelete_shelfLife_textfield.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_shelfLife_textfield.setText("" + product.getShelfLife());
+            shelfEditDelete_shelfLife_textfield.setVisible(true);
+
+            shelfEditDelete_startDate_label = new JLabel();
+            shelfEditDelete_startDate_label.setBounds(74,242,90,35);
+            shelfEditDelete_startDate_label.setBackground(new Color(214,217,223));
+            shelfEditDelete_startDate_label.setForeground(new Color(0,0,0));
+            shelfEditDelete_startDate_label.setEnabled(true);
+            shelfEditDelete_startDate_label.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_startDate_label.setText("Start Date:");
+            shelfEditDelete_startDate_label.setVisible(true);
+
+            shelfEditDelete_startDate_textfield = new JTextField();
+            shelfEditDelete_startDate_textfield.setBounds(163,242,90,35);
+            shelfEditDelete_startDate_textfield.setBackground(new Color(255,255,255));
+            shelfEditDelete_startDate_textfield.setForeground(new Color(0,0,0));
+            shelfEditDelete_startDate_textfield.setEnabled(true);
+            shelfEditDelete_startDate_textfield.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_startDate_textfield.setText("");
+            shelfEditDelete_startDate_textfield.setVisible(true);
+
+            shelfEditDelete_title_label = new JLabel();
+            shelfEditDelete_title_label.setBounds(69,5,220,35);
+            shelfEditDelete_title_label.setBackground(new Color(214,217,223));
+            shelfEditDelete_title_label.setForeground(new Color(0,0,0));
+            shelfEditDelete_title_label.setEnabled(true);
+            shelfEditDelete_title_label.setFont(new Font("SansSerif",0,20));
+            shelfEditDelete_title_label.setText("Edit/Delete Product");
+            shelfEditDelete_title_label.setVisible(true);
+
+            shelfEditDelete_type_textfield = new JTextField();
+            shelfEditDelete_type_textfield.setBounds(163,122,90,35);
+            shelfEditDelete_type_textfield.setBackground(new Color(255,255,255));
+            shelfEditDelete_type_textfield.setForeground(new Color(0,0,0));
+            shelfEditDelete_type_textfield.setEnabled(true);
+            shelfEditDelete_type_textfield.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_type_textfield.setText(""+ product.getType());
+            shelfEditDelete_type_textfield.setVisible(true);
+
+            shelf_type_label = new JLabel();
+            shelf_type_label.setBounds(74,122,90,35);
+            shelf_type_label.setBackground(new Color(214,217,223));
+            shelf_type_label.setForeground(new Color(0,0,0));
+            shelf_type_label.setEnabled(true);
+            shelf_type_label.setFont(new Font("sansserif",0,12));
+            shelf_type_label.setText("Type:");
+            shelf_type_label.setVisible(true);
+
+            shelfEditDelete_pannel = new JPanel(null);
+            shelfEditDelete_pannel.setBorder(BorderFactory.createEtchedBorder(1));
+            shelfEditDelete_pannel.setBounds(81,9,322,474);
+            shelfEditDelete_pannel.setBackground(new Color(214,217,223));
+            shelfEditDelete_pannel.setForeground(new Color(0,0,0));
+            shelfEditDelete_pannel.setEnabled(true);
+            shelfEditDelete_pannel.setFont(new Font("sansserif",0,12));
+            shelfEditDelete_pannel.setVisible(true);
+
+            shelf_price_textfield4 = new JTextField();
+            shelf_price_textfield4.setBounds(163,162,90,35);
+            shelf_price_textfield4.setBackground(new Color(255,255,255));
+            shelf_price_textfield4.setForeground(new Color(0,0,0));
+            shelf_price_textfield4.setEnabled(true);
+            shelf_price_textfield4.setFont(new Font("sansserif",0,12));
+            shelf_price_textfield4.setText("" + product.getPrice());
+            shelf_price_textfield4.setVisible(true);
+
+            //adding components to contentPane panel
+            shelfEditDelete_pannel.add(addToShelf_product_id_label);
+            shelfEditDelete_pannel.add(shelfAdd_edit_button);
+            shelfEditDelete_pannel.add(shelfEditDelete_cancel_button);
+            shelfEditDelete_pannel.add(shelfEditDelete_confirm_button);
+            shelfEditDelete_pannel.add(shelfEditDelete_discountRate_label);
+            shelfEditDelete_pannel.add(shelfEditDelete_discountRate_ltextfield);
+            shelfEditDelete_pannel.add(shelfEditDelete_id_textfield);
+            shelfEditDelete_pannel.add(shelfEditDelete_name_label);
+            shelfEditDelete_pannel.add(shelfEditDelete_name_textfield);
+            shelfEditDelete_pannel.add(shelfEditDelete_number_label);
+            shelfEditDelete_pannel.add(shelfEditDelete_number_textfield);
+            shelfEditDelete_pannel.add(shelfEditDelete_price_label);
+            shelfEditDelete_pannel.add(shelfEditDelete_sellType_label);
+            shelfEditDelete_pannel.add(shelfEditDelete_sellType_textfield);
+            shelfEditDelete_pannel.add(shelfEditDelete_shelfLife_label);
+            shelfEditDelete_pannel.add(shelfEditDelete_shelfLife_textfield);
+            shelfEditDelete_pannel.add(shelfEditDelete_startDate_label);
+            shelfEditDelete_pannel.add(shelfEditDelete_startDate_textfield);
+            shelfEditDelete_pannel.add(shelfEditDelete_title_label);
+            shelfEditDelete_pannel.add(shelfEditDelete_type_textfield);
+            shelfEditDelete_pannel.add(shelf_type_label);
+            contentPane.add(shelfEditDelete_pannel);
+            shelfEditDelete_pannel.add(shelf_price_textfield4);
+
+            //adding panel to JFrame and seting of window position and close operation
+            this.add(contentPane);
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setLocationRelativeTo(null);
+            this.pack();
+            this.setVisible(true);
+        }
+
+        //method for generate menu
+        public void generateMenu(){
+            menuBar = new JMenuBar();
+
+            JMenu file = new JMenu("File");
+            JMenu tools = new JMenu("Tools");
+            JMenu help = new JMenu("Help");
+
+            JMenuItem open = new JMenuItem("Open   ");
+            JMenuItem save = new JMenuItem("Save   ");
+            JMenuItem exit = new JMenuItem("Exit   ");
+            JMenuItem preferences = new JMenuItem("Preferences   ");
+            JMenuItem about = new JMenuItem("About   ");
+
+
+            file.add(open);
+            file.add(save);
+            file.addSeparator();
+            file.add(exit);
+            tools.add(preferences);
+            help.add(about);
+
+            menuBar.add(file);
+            menuBar.add(tools);
+            menuBar.add(help);
+        }
     }
     
     public class GUI_userInfo extends JFrame {

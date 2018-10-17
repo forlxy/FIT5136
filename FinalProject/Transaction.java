@@ -48,7 +48,7 @@ public class Transaction {
             orderList = new ArrayList<>();
     }
 
-    public List<Order> getOrderList() {
+    public static List<Order> getOrderList() {
         return orderList;
     }
 

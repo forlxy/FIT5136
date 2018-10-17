@@ -20,11 +20,10 @@ public class User {
      * This is the method to allow user to change password 
      *
      * @param password  
-     * @param newPassword
      * @Return true if the input password match the user password else return false.
      */
     public boolean changePassword(String password) {
-        if (!password.equals(getPassword()) && Registered.validatePassword(password)) {
+        if (!password.equals(getPassword()) && RegisteredController.validatePassword(password)) {
             setPassword(password);
             return true;
         }

@@ -1,10 +1,12 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Customer\ getCurrentUser()
-comment1.params=user\ state
-comment1.target=MainInterface(Customer,\ int)
-comment2.params=row\ column
-comment2.target=boolean\ isCellEditable(int,\ int)
-comment3.params=
-comment3.target=void\ init()
-numComments=4
+comment0.target=MainInterface
+comment0.text=\n\ Write\ a\ description\ of\ class\ MainInterface\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=Customer\ getCurrentUser()
+comment2.params=user\ state
+comment2.target=MainInterface(Customer,\ int)
+comment3.params=row\ column
+comment3.target=boolean\ isCellEditable(int,\ int)
+comment4.params=
+comment4.target=void\ init()
+numComments=5

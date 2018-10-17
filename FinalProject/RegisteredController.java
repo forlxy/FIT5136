@@ -1,4 +1,12 @@
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.text.ParseException;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.io.FileNotFoundException;
+
 
 public class RegisteredController {
     public static void readFile() throws FileNotFoundException {
@@ -27,5 +35,21 @@ public class RegisteredController {
     
     public static Customer getByEmail(String email) {
         return Registered.getByEmail(email);
+    }
+    
+    public static boolean validateEmail(String email) {
+        String regex = "^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    public static boolean validatePassword(String password) {
+       return password.length() > 5 && password.length() < 12;
+    }
+
+    public static boolean validatePhone(String phone) {
+        return (phone.length() == 10) && (phone.charAt(0) == '0' );
+
     }
 }

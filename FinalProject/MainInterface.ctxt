@@ -1,14 +1,18 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Customer\ getCurrentUser()
-comment1.params=user\ state
-comment1.target=MainInterface(Customer,\ int)
+comment1.params=
+comment1.target=void\ updateShelf()
 comment2.params=row\ column
 comment2.target=boolean\ isCellEditable(int,\ int)
-comment3.params=mouseEvent
-comment3.target=void\ mousePressed(java.awt.event.MouseEvent)
-comment4.params=actionEvent
-comment4.target=void\ actionPerformed(java.awt.event.ActionEvent)
-comment5.params=
-comment5.target=void\ init()
-numComments=6
+comment3.params=user\ state
+comment3.target=MainInterface(Customer,\ int)
+comment4.params=row\ column
+comment4.target=boolean\ isCellEditable(int,\ int)
+comment5.params=mouseEvent
+comment5.target=void\ mousePressed(java.awt.event.MouseEvent)
+comment6.params=actionEvent
+comment6.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment7.params=
+comment7.target=void\ init()
+numComments=8

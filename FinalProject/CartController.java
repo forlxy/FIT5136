@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -23,8 +24,18 @@ public class CartController {
     }
 
     public static boolean purchase() {
-        Order newOrder = new Order(UUID.randomUUID().toString(), MainInterface.getCurrentUser(), Cart.getProductList(), new Date(), Cart.getTotalPrice());
-        return Transaction.addOrder(newOrder);
+        Order newOrder = new Order(UUID.randomUUID().toString(), MainInterface.getCurrentUser(), new ArrayList<>(Cart.getProductList()), new Date(), Cart.getTotalPrice());
+        boolean result = Transaction.addOrder(newOrder);
+        for(Order o: Transaction.getOrderList()){
+
+            System.out.println(o);
+        }
+        clearCart();
+        for(Order o: Transaction.getOrderList()){
+
+            System.out.println(o);
+        }
+        return result;
     }
 
 

@@ -36,9 +36,8 @@ public class Shelf {
         return searchedProducts;
     }
 
-    public static boolean updateProduct(int index, int productNumeber) {
-        shelfProducts.get(index).setProductNumber(productNumeber);
-        return shelfProducts.set(index, shelfProducts.get(index)) != null;
+    public static boolean updateProduct(int index, Product newProduct) {
+        return shelfProducts.set(index, newProduct) != null;
     }
 
     public static boolean insertProduct(Product product) {

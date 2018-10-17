@@ -42,7 +42,7 @@ public class Cart {
     public static List<Product> getProductList() {
         return productList;
     }
-
+    
     public static double getTotalPrice(){
         double total = 0;
         for (Product p: productList){

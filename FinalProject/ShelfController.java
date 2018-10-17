@@ -5,8 +5,8 @@ import java.util.List;
 
 public class ShelfController {
 
-    public static boolean updateProduct(int index, int productNumber) {
-        return Shelf.updateProduct(index, productNumber);
+    public static boolean updateProduct(int index, Product newProduct) {
+        return Shelf.updateProduct(index, newProduct);
     }
 
     public static boolean insertProduct(Product product) {

@@ -180,7 +180,7 @@ public class MainInterface
 
         cartButton.addActionListener(e -> new CartUI().setVisible(true));
         orderButton.addActionListener(e -> new OrderUI().setVisible(true));
-        personButton.addActionListener(e -> new OrderUI().setVisible(true));
+        personButton.addActionListener(e -> new GUI_userInfo().setVisible(true));
 
 
         mfvs.setLayout(new BorderLayout());

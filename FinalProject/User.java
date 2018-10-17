@@ -5,20 +5,32 @@ public class User {
     public User() {
 
     }
-
+    
+    /**
+     * Constructor for class User
+     * @param email
+     * @param password
+     */
     public User(String email, String password) {
         this.email = email;
         this.password = password;
     }
-
-    public boolean changePassword(String password) {
-        if (password != getPassword() && Registered.validatePassword(password)) {
-            setPassword(password);
+    
+    /**
+     * This is the method to allow user to change password 
+     *
+     * @param password  
+     * @param newPassword
+     * @Return true if the input password match the user password else return false.
+     */
+    public boolean changePassword(String password, String newPassword) {
+        if (password.equals(getPassword()) && Registered.validatePassword(password)) {
+            setPassword(newPassword);
             return true;
         }
         return false;
     }
-
+    
     public String getEmail() {
         return email;
     }

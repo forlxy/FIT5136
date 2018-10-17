@@ -13,7 +13,8 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import javax.swing.border.Border;
 import javax.swing.*;
-
+import java.io.FileNotFoundException;
+import java.text.ParseException;
 
 public class GUI_login extends JFrame {
 
@@ -29,7 +30,11 @@ public class GUI_login extends JFrame {
 
     //Constructor 
     public GUI_login(){
-
+        try {
+            RegisteredController.readFile();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         this.setTitle("GUI_login");
         this.setSize(400,300);
         //menu generate method

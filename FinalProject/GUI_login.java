@@ -58,9 +58,8 @@ public class GUI_login extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.setProperty("swing.defaultlaf", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-                javax.swing.SwingUtilities.invokeLater(new Runnable() {
-                    public void run() {                  
+              
+                     
                         int loginState = RegisteredController.login(emailTextfield.getText(), new String(passwordField.getPassword()));
                         if (loginState == 0 || loginState == 1) {
                             new MainInterface(RegisteredController.getByEmail(emailTextfield.getText()), loginState);
@@ -69,8 +68,7 @@ public class GUI_login extends JFrame {
                             JOptionPane.showMessageDialog(null, "Sorry, The email or password is not matched");
                         }
                     
-                    }
-                });
+                    
             }
         });
 

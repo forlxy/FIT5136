@@ -22,7 +22,8 @@ public class Registered {
         init();
     }
     public static boolean addCustomer(Customer customer) {
-        return customerList.add(customer); }
+        return customerList.add(customer); 
+    }
 
     public static boolean removeCustomer(int index) {
         return customerList.remove(index) != null;

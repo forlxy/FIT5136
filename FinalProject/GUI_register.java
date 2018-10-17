@@ -149,7 +149,6 @@ public class GUI_register extends JFrame {
         
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.setProperty("swing.defaultlaf", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
                 
                         String address = addressTextfield.getText();
                         String phone = phoneTextfield.getText();
@@ -164,6 +163,11 @@ public class GUI_register extends JFrame {
                         } else {
                              Customer customer = new Customer(address, 99999, phone, email, password);
                              if (RegisteredController.addCustomer(customer)) {
+                                 try {
+                                RegisteredController.writeFile();
+                            } catch (FileNotFoundException ex) {
+                                ex.printStackTrace();
+                            }
                                  new GUI_login();
                                  dispose();
                                 } else {
@@ -172,11 +176,7 @@ public class GUI_register extends JFrame {
                         }
             }
     });
-                            try {
-                                RegisteredController.writeFile();
-                            } catch (FileNotFoundException ex) {
-                                ex.printStackTrace();
-                            }
+                           
 
         returnButton = new JButton();
         returnButton.setBounds(65,400,90,35);

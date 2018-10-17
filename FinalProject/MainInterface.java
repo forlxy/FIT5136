@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
 import java.security.acl.Owner;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.*;
@@ -34,7 +35,7 @@ public class MainInterface
     private JButton productButton;
     private JButton searchButton;
     private JButton orderButton;
-    private JButton checkButton;
+    private JButton personButton;
     private JButton cartButton;
     private static Customer currentCustomer;
 
@@ -56,9 +57,16 @@ public class MainInterface
 
         mfvs = new JFrame("MFVS");
 
+        try {
+            ShelfController.readFile();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         buttonPanel = new JPanel();
         bottomPanel = new JPanel();
-        productTable = new JTable(new DefaultTableModel(tableColumn, 20) ){
+
+        DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 20) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 //all cells false
@@ -66,13 +74,46 @@ public class MainInterface
             }
         };
 
+        List<Product> shelf = ShelfController.getShelfProducts();
+
+        for (Product p: shelf){
+            Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.discountRate, p.sellType, p.getProductNumber()};
+
+            tableModel.addRow(data);
+        }
+
+        productTable = new JTable(tableModel);
+
+        productTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent mouseEvent) {
+                JTable table =(JTable) mouseEvent.getSource();
+                Point point = mouseEvent.getPoint();
+                int row = table.rowAtPoint(point);
+                if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1 && row < shelf.size()) {
+                    new GUI_addToCart(shelf.get(row)).setVisible(true);
+                }
+            }
+        });
+
+
         searchButton = new JButton("SearchProduct");
         productButton = new JButton("ManageProduct");
         cartButton = new JButton("Cart");
         orderButton = new JButton("Order");
         closeButton = new JButton("Close");
+        personButton = new JButton("Me");
 
-        closeButton.addActionListener(e -> mfvs.dispose());
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    ShelfController.writeFile();
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                }
+                mfvs.dispose();
+            }
+        });
 //        loginDialog = new CartUI(mfvs);
 //        registerDialog = new Dialog(mfvs, true);
 //        searchProductDialog = new Dialog(mfvs, true);
@@ -97,6 +138,7 @@ public class MainInterface
         buttonPanel.add(productButton);
         buttonPanel.add(cartButton);
         buttonPanel.add(orderButton);
+        buttonPanel.add(personButton);
 
         bottomPanel.add(closeButton);
 
@@ -106,8 +148,13 @@ public class MainInterface
 //        addButton.addActionListener(e -> addProductDialog.setVisible(true));
 //        editButton.addActionListener(e -> editProductDialog.setVisible(true));
 //        checkButton.addActionListener(e -> checkStorageDialog.setVisible(true));
+        productButton.addActionListener(e -> new ManageProductUI(mfvs, true).setVisible(true));
+        searchButton.addActionListener(e -> new SearchUI(mfvs, true).setVisible(true));
+
         cartButton.addActionListener(e -> new CartUI(mfvs, true).setVisible(true));
         orderButton.addActionListener(e -> new OrderUI(mfvs, true).setVisible(true));
+        personButton.addActionListener(e -> new OrderUI(mfvs, true).setVisible(true));
+
 
         mfvs.setLayout(new BorderLayout());
         mfvs.add(buttonPanel, BorderLayout.NORTH);
@@ -116,14 +163,6 @@ public class MainInterface
 
         //mfvs.pack();
         mfvs.setVisible(true);
-    }
-
-    class loginListener implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e)
-        {
-
-        }
     }
 
     public class CartUI extends JDialog
@@ -371,6 +410,220 @@ public class MainInterface
 
 
 
+    public class ManageProductUI extends JDialog
+    {
+        private String[] tableColumn = {"ID", "Name", "FoodType", "Price", "Shelf Life"
+                , "Start Date", "Discount Rate", "Sell Type", "Number of Product"};
+
+        private ListSelectionListener listSelectionListener;
+        private JFrame mfvs;
+        private JPanel buttonPanel;
+        private JPanel bottomPanel;
+        private JTable productTable;
+
+        private JButton addButton;
+        private JButton closeButton;
+
+        private Dialog loginDialog;
+        private Dialog registerDialog;
+        private Dialog searchProductDialog;
+        private Dialog addProductDialog;
+        private Dialog editProductDialog;
+        private Dialog checkStorageDialog;
+        private Dialog cartDialog;
+
+        public ManageProductUI(final JFrame frame, boolean modal)
+        {
+            super(frame, modal);
+
+            buttonPanel = new JPanel();
+            bottomPanel = new JPanel();
+
+            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 20) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
+
+            List<Product> shelf = ShelfController.getShelfProducts();
+
+            for (Product p: shelf){
+                Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.discountRate, p.sellType, p.getProductNumber()};
+
+                tableModel.addRow(data);
+            }
+
+            productTable = new JTable(tableModel);
+
+            productTable.addMouseListener(new MouseAdapter() {
+                public void mousePressed(MouseEvent mouseEvent) {
+                    JTable table =(JTable) mouseEvent.getSource();
+                    Point point = mouseEvent.getPoint();
+                    int row = table.rowAtPoint(point);
+                    if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1 && row < shelf.size()) {
+//                        new GUI_shelf(row, shelf.get(row)).setVisible(true);
+                    }
+                }
+            });
+
+            addButton = new JButton("Add Product");
+            closeButton = new JButton("Close");
+
+            closeButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    dispose();
+                }
+            });
+            loginDialog = new Dialog(mfvs, true);
+            registerDialog = new Dialog(mfvs, true);
+            searchProductDialog = new Dialog(mfvs, true);
+            addProductDialog = new Dialog(mfvs, true);
+            editProductDialog = new Dialog(mfvs, true);
+            checkStorageDialog = new Dialog(mfvs, true);
+            cartDialog = new Dialog(mfvs, true);
+            init();
+        }
+
+        public void init()
+        {
+            setBounds(400,250,800,400);
+            loginDialog.setBounds(300, 300, 200, 170);
+            registerDialog.setBounds(300, 300, 200, 170);
+            searchProductDialog.setBounds(300, 300, 200, 170);
+            addProductDialog.setBounds(300, 300, 200, 170);
+            editProductDialog.setBounds(300, 300, 200, 170);
+            checkStorageDialog.setBounds(300, 300, 200, 170);
+            cartDialog.setBounds(300, 300, 200, 170);
+
+            buttonPanel.add(addButton);
+            
+            bottomPanel.add(closeButton);
+
+            setLayout(new BorderLayout());
+            add(buttonPanel, BorderLayout.NORTH);
+            add(new JScrollPane(productTable), BorderLayout.CENTER);
+            add(bottomPanel, BorderLayout.SOUTH);
+
+        }
+
+
+    }
+
+
+    public class SearchUI extends JDialog
+    {
+        private String[] tableColumn = {"ID", "Name", "FoodType", "Price", "Shelf Life"
+                , "Start Date", "Discount Rate", "Sell Type", "Number of Product"};
+
+        private ListSelectionListener listSelectionListener;
+        private JFrame mfvs;
+        private JPanel buttonPanel;
+        private JPanel bottomPanel;
+        private JTable productTable;
+
+        public List<Product> shelf;
+
+        private JTextField searchTextField;
+
+        private JButton clearButton;
+        private JButton closeButton;
+        private JButton purchaseButton;
+        private JButton searchButton;
+
+        public SearchUI(final JFrame frame, boolean modal)
+        {
+            super(frame, modal);
+
+            buttonPanel = new JPanel();
+            bottomPanel = new JPanel();
+
+            DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 20) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
+
+            shelf = ShelfController.getShelfProducts();
+
+
+            for (Product p: shelf){
+                Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.discountRate, p.sellType, p.getProductNumber()};
+
+                tableModel.addRow(data);
+            }
+
+            productTable = new JTable(tableModel);
+
+            productTable.addMouseListener(new MouseAdapter() {
+                public void mousePressed(MouseEvent mouseEvent) {
+                    JTable table =(JTable) mouseEvent.getSource();
+                    Point point = mouseEvent.getPoint();
+                    int row = table.rowAtPoint(point);
+                    if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1 && row < shelf.size()) {
+                        new GUI_addToCart(shelf.get(row)).setVisible(true);
+                    }
+                }
+            });
+
+
+            searchTextField = new JTextField();
+
+            
+            searchTextField.setBounds(144,62,117,31);
+            
+            clearButton = new JButton("Clear");
+            closeButton = new JButton("Close");
+            purchaseButton = new JButton("Purchase");
+            searchButton = new JButton("Search");
+
+            closeButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    dispose();
+                }
+            });
+
+            searchButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    shelf = ShelfController.searchProduct(searchTextField.getText());
+                }
+            });
+            loginDialog = new Dialog(mfvs, true);
+            registerDialog = new Dialog(mfvs, true);
+            searchProductDialog = new Dialog(mfvs, true);
+            addProductDialog = new Dialog(mfvs, true);
+            editProductDialog = new Dialog(mfvs, true);
+            checkStorageDialog = new Dialog(mfvs, true);
+            cartDialog = new Dialog(mfvs, true);
+            init();
+        }
+
+        public void init()
+        {
+            setBounds(400,250,800,400);
+
+            buttonPanel.add(searchTextField);
+            buttonPanel.add(searchButton);
+            
+            bottomPanel.add(closeButton);
+
+            setLayout(new BorderLayout());
+            add(buttonPanel, BorderLayout.NORTH);
+            add(new JScrollPane(productTable), BorderLayout.CENTER);
+            add(bottomPanel, BorderLayout.SOUTH);
+
+        }
+
+
+    }
+
+
     class GUI_addToCart extends JFrame {
 
         private JMenuBar menuBar;
@@ -382,7 +635,7 @@ public class MainInterface
         private JTextField addToCart_number_textfield;
 
         //Constructor
-        public GUI_addToCart(){
+        public GUI_addToCart(Product product){
 
             this.setTitle("GUI_addToCart");
             this.setSize(500,400);

@@ -69,7 +69,7 @@ public class Registered {
     }
 
     public static void writeFile() throws FileNotFoundException {
-        PrintWriter pw = new PrintWriter(new File("transactions.csv"));
+        PrintWriter pw = new PrintWriter(new File("Customer.csv"));
         StringBuilder sb = new StringBuilder();
         sb.append(customerList.size());
         sb.append('\n');

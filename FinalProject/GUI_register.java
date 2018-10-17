@@ -13,7 +13,8 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import javax.swing.border.Border;
 import javax.swing.*;
-
+import java.io.FileNotFoundException;
+import java.text.ParseException;
 
 public class GUI_register extends JFrame {
 
@@ -171,6 +172,11 @@ public class GUI_register extends JFrame {
                         }
             }
     });
+                            try {
+                                RegisteredController.writeFile();
+                            } catch (FileNotFoundException ex) {
+                                ex.printStackTrace();
+                            }
 
         returnButton = new JButton();
         returnButton.setBounds(65,400,90,35);
@@ -231,27 +237,27 @@ public class GUI_register extends JFrame {
         JMenuItem about = new JMenuItem("About   ");
 
 
-		file.add(open);
-		file.add(save);
-		file.addSeparator();
-		file.add(exit);
-		tools.add(preferences);
-		help.add(about);
+        file.add(open);
+        file.add(save);
+        file.addSeparator();
+        file.add(exit);
+        tools.add(preferences);
+        help.add(about);
 
-		menuBar.add(file);
-		menuBar.add(tools);
-		menuBar.add(help);
-	}
+        menuBar.add(file);
+        menuBar.add(tools);
+        menuBar.add(help);
+    }
 
 
 
-	 public static void main(String[] args){
-		System.setProperty("swing.defaultlaf", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				new GUI_register();
-			}
-		});
-	}
+     public static void main(String[] args){
+        System.setProperty("swing.defaultlaf", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new GUI_register();
+            }
+        });
+    }
 
 }

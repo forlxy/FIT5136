@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Shelf {
+public class  Shelf {
 
     private static List<Product> shelfProducts;
 

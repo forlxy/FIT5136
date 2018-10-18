@@ -2,15 +2,15 @@ import java.util.Date;
 
 public class Product {
 	
-	int id;
-	String name;
-	int type;
-	double price;
-	int shelfLife;
-	Date startDate;
-	double discountRate;
-	int sellType;  
-	int productNumber;
+	private int id;
+	private String name;
+	private int type;
+	private double price;
+	private int shelfLife;
+	private Date startDate;
+	private double discountRate;
+	private int sellType;
+	private int productNumber;
 	
 	public Product() {
 		id = 0;

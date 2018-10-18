@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -47,6 +48,7 @@ public class MainInterface {
     private Dialog cartDialog;
 
     public static List<Product> shelf;
+    public static List<Product> shelfAfterSearch;
 
 
     public static Customer getCurrentUser() {
@@ -159,10 +161,11 @@ public class MainInterface {
 //        editProductDialog.setBounds(300, 300, 200, 170);
 //        checkStorageDialog.setBounds(300, 300, 200, 170);
 //        cartDialog.setBounds(300, 300, 200, 170);
+
+        buttonPanel.add(searchButton);
         if (state == 0) {
             buttonPanel.add(productButton);
         }
-        buttonPanel.add(searchButton);
         buttonPanel.add(cartButton);
         buttonPanel.add(orderButton);
         buttonPanel.add(personButton);
@@ -628,7 +631,6 @@ public class MainInterface {
 
             shelf = ShelfController.getShelfProducts();
 
-
             for (Product p : shelf) {
                 Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.getDiscountRate(), p.getSellType(), p.getProductNumber()};
 
@@ -637,20 +639,9 @@ public class MainInterface {
 
             productTable = new JTable(tableModel);
 
-            productTable.addMouseListener(new MouseAdapter() {
-                public void mousePressed(MouseEvent mouseEvent) {
-                    JTable table = (JTable) mouseEvent.getSource();
-                    Point point = mouseEvent.getPoint();
-                    int row = table.rowAtPoint(point);
-                    if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1 && row < shelf.size()) {
-                        new GUI_addToCart(shelf.get(row)).setVisible(true);
-                    }
-                }
-            });
 
 
             searchTextField = new JTextField();
-
 
             //searchTextField.setBounds(144, 62, 150, 31);
             searchTextField.setPreferredSize(new Dimension(150, 31));
@@ -704,17 +695,28 @@ public class MainInterface {
             };
 
             shelf = ShelfController.getShelfProducts();
-
+            shelfAfterSearch = new ArrayList<>();
             for (Product p : shelf) {
                 if (p.getName().equals(pName)) {
                     Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.getDiscountRate(), p.getSellType(), p.getProductNumber()};
-
+                    shelfAfterSearch.add(p);
                     tableModel.addRow(data);
                 }
 
             }
             tableModel.fireTableDataChanged();
+            productTable.addMouseListener(new MouseAdapter() {
+                public void mousePressed(MouseEvent mouseEvent) {
+                    JTable table = (JTable) mouseEvent.getSource();
+                    Point point = mouseEvent.getPoint();
+                    int row = table.rowAtPoint(point);
+                    if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1 && row < shelfAfterSearch.size()) {
+                        new GUI_addToCart(shelfAfterSearch.get(row)).setVisible(true);
+                    }
+                }
+            });
             productTable.setModel(tableModel);
+
 
         }
 

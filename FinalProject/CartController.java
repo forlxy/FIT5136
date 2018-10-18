@@ -30,11 +30,18 @@ public class CartController {
 
             System.out.println(o);
         }
-        clearCart();
+
         for(Order o: Transaction.getOrderList()){
 
             System.out.println(o);
         }
+        for (Product pInCart: Cart.getProductList()) {
+            Product pOnShelf= Shelf.getProdcutById(pInCart.getId());
+            if (pOnShelf != null) {
+                pOnShelf.setProductNumber(pOnShelf.getProductNumber() - pInCart.getProductNumber());
+            }
+        }
+        clearCart();
         return result;
     }
 

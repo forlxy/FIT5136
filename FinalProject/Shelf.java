@@ -40,6 +40,15 @@ public class  Shelf {
         return shelfProducts.set(index, newProduct) != null;
     }
 
+    public static Product getProdcutById(int Id) {
+        for (Product product : shelfProducts) {
+            if(product.getId() == Id) {
+                return product;
+            }
+        }
+        return  null;
+    }
+
     public static boolean insertProduct(Product product) {
         return shelfProducts.add(product);
     }

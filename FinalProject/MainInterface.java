@@ -52,6 +52,11 @@ public class MainInterface {
         return currentCustomer;
     }
 
+    public void updateAllShelf() {
+        updateShelf();
+
+    }
+
     public void updateShelf() {
 
         DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
@@ -256,8 +261,13 @@ public class MainInterface {
             clearButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+//                    for (Product product : Cart.getProductList()) {
+//                        Product pInCart = Shelf.replaceProdcut(product.getId());
+//                        if (pInCart != null) {
+//                            pInCart.setProductNumber(product.getProductNumber() + pInCart.getProductNumber());
+//                        }
+//                    }
                     clearCartUI();
-
                     updateShelf();
                 }
             });
@@ -267,10 +277,12 @@ public class MainInterface {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
                     Double totalPrice = Cart.getTotalPrice();
+
                     if (CartController.purchase()) {
 
                         System.out.println("TotalPrice: " + totalPrice);
                         getCurrentUser().setBalance(getCurrentUser().getBalance() - totalPrice);
+                        updateShelf();
                         try {
                             RegisteredController.writeFile();
                         } catch (FileNotFoundException ex) {
@@ -778,12 +790,12 @@ public class MainInterface {
                 public void actionPerformed(ActionEvent actionEvent) {
                     int purchaseQuantity = Integer.parseInt(addToCart_number_textfield.getText());
                     if (purchaseQuantity > 0 && purchaseQuantity <= product.getProductNumber()) {
-                        product.setProductNumber(product.getProductNumber() - purchaseQuantity);
+                        //product.setProductNumber(product.getProductNumber() - purchaseQuantity);
                         updateShelf();
                         Product pToc = new Product(product.getId(), product.getName(), product.getType(), product.getPrice(), product.getShelfLife(), product.getStartDate(), product.getDiscountRate(), product.getSellType(), purchaseQuantity);
                         CartController.addItem(pToc);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Sorry, the purchase quantity can not exceed  in stock quantity!");
+                        JOptionPane.showMessageDialog(null, "Sorry, the purchase quantity can not exceed in-stock quantity!");
                     }
                     dispose();
                 }
@@ -827,7 +839,7 @@ public class MainInterface {
 
             //adding panel to JFrame and seting of window position and close operation
             this.add(contentPane);
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             this.setLocationRelativeTo(null);
             this.pack();
             this.setVisible(true);
@@ -904,19 +916,18 @@ public class MainInterface {
 
             this.productTable = productTable;
             this.setTitle("GUI_editCart");
-            this.setSize(500, 400);
+            this.setSize(300, 200);
             //menu generate method
-            generateMenu();
             this.setJMenuBar(menuBar);
 
             //pane with null layout
             JPanel contentPane = new JPanel(null);
-            contentPane.setPreferredSize(new Dimension(500, 400));
+            contentPane.setPreferredSize(new Dimension(300, 200));
             contentPane.setBackground(new Color(192, 192, 192));
 
 
             editCart_add_button = new JButton();
-            editCart_add_button.setBounds(28, 105, 67, 35);
+            editCart_add_button.setBounds(28, 105, 73, 35);
             editCart_add_button.setBackground(new Color(214, 217, 223));
             editCart_add_button.setForeground(new Color(0, 0, 0));
             editCart_add_button.setEnabled(true);
@@ -926,7 +937,7 @@ public class MainInterface {
 
 
             editCart_cancel_button = new JButton();
-            editCart_cancel_button.setBounds(200, 105, 67, 35);
+            editCart_cancel_button.setBounds(200, 105, 73, 35);
             editCart_cancel_button.setBackground(new Color(214, 217, 223));
             editCart_cancel_button.setForeground(new Color(0, 0, 0));
             editCart_cancel_button.setEnabled(true);
@@ -936,7 +947,7 @@ public class MainInterface {
 
 
             editCart_delete_button = new JButton();
-            editCart_delete_button.setBounds(116, 105, 67, 35);
+            editCart_delete_button.setBounds(116, 105, 73, 35);
             editCart_delete_button.setBackground(new Color(214, 217, 223));
             editCart_delete_button.setForeground(new Color(0, 0, 0));
             editCart_delete_button.setEnabled(true);
@@ -964,7 +975,7 @@ public class MainInterface {
 
             editCart_panel = new JPanel(null);
             editCart_panel.setBorder(BorderFactory.createEtchedBorder(1));
-            editCart_panel.setBounds(99, 65, 294, 163);
+            editCart_panel.setBounds(-5, -5, 300, 200);
             editCart_panel.setBackground(new Color(214, 217, 223));
             editCart_panel.setForeground(new Color(0, 0, 0));
             editCart_panel.setEnabled(true);
@@ -1010,40 +1021,11 @@ public class MainInterface {
 
             //adding panel to JFrame and seting of window position and close operation
             this.add(contentPane);
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             this.setLocationRelativeTo(null);
             this.pack();
             this.setVisible(true);
         }
-
-        //method for generate menu
-        public void generateMenu() {
-            menuBar = new JMenuBar();
-
-            JMenu file = new JMenu("File");
-            JMenu tools = new JMenu("Tools");
-            JMenu help = new JMenu("Help");
-
-            JMenuItem open = new JMenuItem("Open   ");
-            JMenuItem save = new JMenuItem("Save   ");
-            JMenuItem exit = new JMenuItem("Exit   ");
-            JMenuItem preferences = new JMenuItem("Preferences   ");
-            JMenuItem about = new JMenuItem("About   ");
-
-
-            file.add(open);
-            file.add(save);
-            file.addSeparator();
-            file.add(exit);
-            tools.add(preferences);
-            help.add(about);
-
-            menuBar.add(file);
-            menuBar.add(tools);
-            menuBar.add(help);
-        }
-
-
     }
 
 
@@ -1359,7 +1341,7 @@ public class MainInterface {
 
             //adding panel to JFrame and seting of window position and close operation
             this.add(contentPane);
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             this.setLocationRelativeTo(null);
             this.pack();
             this.setVisible(true);
@@ -1452,14 +1434,14 @@ public class MainInterface {
 
             this.productTable = productTable;
             this.setTitle("GUI_shelfEditDelete");
-            this.setSize(533, 504);
+            this.setSize(322, 474);
             //menu generate method
             //generateMenu();
             this.setJMenuBar(menuBar);
 
             //pane with null layout
             JPanel contentPane = new JPanel(null);
-            contentPane.setPreferredSize(new Dimension(533, 504));
+            contentPane.setPreferredSize(new Dimension(322, 474));
             contentPane.setBackground(new Color(192, 192, 192));
 
 
@@ -1503,7 +1485,7 @@ public class MainInterface {
             shelfEditDelete_cancel_button.addActionListener(e -> dispose());
 
             shelfEditDelete_confirm_button = new JButton();
-            shelfEditDelete_confirm_button.setBounds(33, 419, 75, 35);
+            shelfEditDelete_confirm_button.setBounds(33, 419, 80, 35);
             shelfEditDelete_confirm_button.setBackground(new Color(214, 217, 223));
             shelfEditDelete_confirm_button.setForeground(new Color(0, 0, 0));
             shelfEditDelete_confirm_button.setEnabled(true);
@@ -1655,7 +1637,8 @@ public class MainInterface {
             shelfEditDelete_startDate_textfield.setForeground(new Color(0, 0, 0));
             shelfEditDelete_startDate_textfield.setEnabled(true);
             shelfEditDelete_startDate_textfield.setFont(new Font("sansserif", 0, 12));
-            shelfEditDelete_startDate_textfield.setText("");
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            shelfEditDelete_startDate_textfield.setText("" + formatter.format((product.getStartDate())));
             shelfEditDelete_startDate_textfield.setVisible(true);
 
             shelfEditDelete_title_label = new JLabel();
@@ -1687,7 +1670,7 @@ public class MainInterface {
 
             shelfEditDelete_pannel = new JPanel(null);
             shelfEditDelete_pannel.setBorder(BorderFactory.createEtchedBorder(1));
-            shelfEditDelete_pannel.setBounds(81, 9, 322, 474);
+            shelfEditDelete_pannel.setBounds(-5, -5, 322, 474);
             shelfEditDelete_pannel.setBackground(new Color(214, 217, 223));
             shelfEditDelete_pannel.setForeground(new Color(0, 0, 0));
             shelfEditDelete_pannel.setEnabled(true);
@@ -1730,7 +1713,7 @@ public class MainInterface {
 
             //adding panel to JFrame and seting of window position and close operation
             this.add(contentPane);
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             this.setLocationRelativeTo(null);
             this.pack();
             this.setVisible(true);
@@ -1788,6 +1771,7 @@ public class MainInterface {
             this.setSize(400, 300);
             //menu generate method
             this.setJMenuBar(menuBar);
+
 
             //pane with null layout
             JPanel contentPane = new JPanel(null);
@@ -1940,10 +1924,10 @@ public class MainInterface {
 
             //adding panel to JFrame and seting of window position and close operation
             this.add(contentPane);
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.setLocationRelativeTo(null);
             this.pack();
             this.setVisible(true);
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
 
 //    //method for generate menu

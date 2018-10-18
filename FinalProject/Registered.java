@@ -33,8 +33,12 @@ public class Registered {
         return customerList.get(index);
     }
 
-   
 
+    /**
+     * search customer by Email.
+     * @param email
+     * @return
+     */
     public static Customer getByEmail(String email) {
         for (Customer customer : customerList) {
             if (customer.getEmail().equals(email)) {
@@ -44,6 +48,10 @@ public class Registered {
         return null;
     }
 
+    /**
+     * load file from the database.
+     * @throws FileNotFoundException
+     */
     public static void readFile() throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("Customer.csv"));
 //        scanner.useDelimiter(",");
@@ -69,6 +77,10 @@ public class Registered {
         scanner.close();
     }
 
+    /**
+     * Get the customer information from database.
+     * @throws FileNotFoundException
+     */
     public static void writeFile() throws FileNotFoundException {
         PrintWriter pw = new PrintWriter(new File("Customer.csv"));
         StringBuilder sb = new StringBuilder();
@@ -90,7 +102,13 @@ public class Registered {
         pw.close();
         System.out.println("Write to CustomerDB done!");
     }
-    
+
+    /**
+     * login into the system.
+     * @param email
+     * @param password
+     * @return
+     */
      public static int login(String email, String password) {
         if (email.equals("admin@test.com") && password.equals("12345678")) {
             return 0;

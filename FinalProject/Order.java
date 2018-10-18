@@ -17,6 +17,10 @@ public class Order {
         this.paidPrice = paidPrice;
     }
 
+    /**
+     * convern the customer information to string.
+     * @return
+     */
     @Override
     public String toString() {
         return "Order{" +
@@ -28,6 +32,11 @@ public class Order {
                 '}';
     }
 
+    /**
+     * Check is the same customer.
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

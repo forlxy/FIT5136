@@ -7,63 +7,18 @@
     <list default="true" id="85992b04-5a76-439b-9580-05a58e3562d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_login.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_register.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Customer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/MainInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Registered.java" beforeDir="false" afterPath="$PROJECT_DIR$/Registered.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegisteredController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegisteredController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shelf.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ShelfController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShelfController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/Cart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/Cart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/CartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_addToCart$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_addToCart$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_addToCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_addToCart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/Shelf.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/Shelf.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/Customer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/Customer.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProject/Shelf.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/Shelf.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/ShelfController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/ShelfController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/package.bluej" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProject/transactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/transactions.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/transactions.csv" afterDir="false" />
     </list>
@@ -78,33 +33,35 @@
     <session id="2071209780">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.5" value="4" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.5" value="6" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="class" value="1" />
           <entry key="ctxt" value="1" />
-          <entry key="java" value="29" />
+          <entry key="java" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="29" />
+          <entry key="CLASS" value="1" />
+          <entry key="JAVA" value="45" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4153" />
+          <entry key="java" value="4230" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4153" />
+          <entry key="JAVA" value="4230" />
         </counts>
       </usages-collector>
     </session>
@@ -114,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shelf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+            <state relative-caret-position="462">
+              <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
               <folding>
                 <element signature="e#505#506#0" expanded="true" />
                 <element signature="e#541#542#0" expanded="true" />
@@ -127,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Registered.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="820">
-              <caret line="62" column="62" lean-forward="true" selection-start-line="62" selection-start-column="62" selection-end-line="62" selection-end-column="62" />
+            <state relative-caret-position="442">
+              <caret line="104" selection-start-line="104" selection-end-line="104" />
             </state>
           </provider>
         </entry>
@@ -136,53 +93,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="1440" column="50" lean-forward="true" selection-start-line="1440" selection-start-column="50" selection-end-line="1440" selection-end-column="50" />
+            <state relative-caret-position="94">
+              <caret line="292" column="61" lean-forward="true" selection-start-line="292" selection-start-column="61" selection-end-line="292" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI_login.java">
+        <entry file="file://$PROJECT_DIR$/RegisteredController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CartController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="16" column="58" lean-forward="true" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
-              <folding>
-                <element signature="e#605#606#0" expanded="true" />
-                <element signature="e#644#645#0" expanded="true" />
-                <element signature="e#1548#1549#0" expanded="true" />
-                <element signature="e#1592#1593#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI_register.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="46" column="51" lean-forward="true" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Product.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-230">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
-              <folding>
-                <element signature="e#872#873#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="777">
+              <caret line="68" column="7" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -190,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+            <state relative-caret-position="294">
+              <caret line="130" column="7" selection-start-line="130" selection-start-column="7" selection-end-line="130" selection-end-column="7" />
               <folding>
                 <element signature="e#961#962#0" expanded="true" />
                 <element signature="e#993#994#0" expanded="true" />
@@ -201,10 +122,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Order.java">
+        <entry file="file://$PROJECT_DIR$/TransactionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="652">
-              <caret line="64" column="34" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="34" />
+            <state relative-caret-position="462">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TransactionController.class">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Product.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="820">
+              <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+              <folding>
+                <element signature="e#856#857#0" expanded="true" />
+                <element signature="e#872#873#0" expanded="true" />
+                <element signature="e#1163#1164#0" expanded="true" />
+                <element signature="e#1182#1183#0" expanded="true" />
+                <element signature="e#1416#1417#0" expanded="true" />
+                <element signature="e#1442#1443#0" expanded="true" />
+                <element signature="e#1830#1831#0" expanded="true" />
+                <element signature="e#1857#1858#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -212,8 +166,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ShelfController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="36" column="53" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+            <state relative-caret-position="533">
+              <caret line="172" column="7" selection-start-line="172" selection-start-column="7" selection-end-line="172" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -222,13 +176,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Gui_edit</find>
-      <find>user</find>
-      <find>this.setDefaultCloseOperation</find>
-      <find>changep</find>
-      <find>GUI_changePassword</find>
-      <find>AddtoCart</find>
-      <find>clear</find>
       <find>update</find>
       <find>setDefaultCloseOperation</find>
       <find>addto</find>
@@ -245,13 +192,20 @@
       <find>searchUI</find>
       <find>readfile</find>
       <find>validateProductId</find>
-      <find>purchase</find>
       <find>cart</find>
       <find>cartUI</find>
       <find>edit</find>
       <find>mfvs</find>
       <find>GUI_userinfo</find>
       <find>GUI_addto</find>
+      <find>balance</find>
+      <find>paidprice</find>
+      <find>totalprice</find>
+      <find>validateProductDiscountRate</find>
+      <find>main</find>
+      <find>shelf</find>
+      <find>shelfcontroller</find>
+      <find>purchase</find>
     </findStrings>
     <replaceStrings>
       <replace>shelfEditDelete_discountRate_textfield</replace>
@@ -265,15 +219,17 @@
       <list>
         <option value="$PROJECT_DIR$/Product.java" />
         <option value="$PROJECT_DIR$/GUI_changePassword.java" />
-        <option value="$PROJECT_DIR$/Order.java" />
-        <option value="$PROJECT_DIR$/TransactionController.java" />
-        <option value="$PROJECT_DIR$/Transaction.java" />
-        <option value="$PROJECT_DIR$/Cart.java" />
         <option value="$PROJECT_DIR$/Shelf.java" />
-        <option value="$PROJECT_DIR$/ShelfController.java" />
         <option value="$PROJECT_DIR$/CartController.java" />
         <option value="$PROJECT_DIR$/GUI_register.java" />
         <option value="$PROJECT_DIR$/GUI_login.java" />
+        <option value="$PROJECT_DIR$/Cart.java" />
+        <option value="$PROJECT_DIR$/Order.java" />
+        <option value="$PROJECT_DIR$/Registered.java" />
+        <option value="$PROJECT_DIR$/RegisteredController.java" />
+        <option value="$PROJECT_DIR$/ShelfController.java" />
+        <option value="$PROJECT_DIR$/Transaction.java" />
+        <option value="$PROJECT_DIR$/TransactionController.java" />
         <option value="$PROJECT_DIR$/MainInterface.java" />
       </list>
     </option>
@@ -289,6 +245,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -300,12 +258,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539854342957" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539864118149" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -374,7 +330,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15778251" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26918977" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -385,7 +341,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.1921824" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.46254072" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.36590663" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
@@ -436,13 +392,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CartUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-122">
-          <caret line="89" column="37" lean-forward="true" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/awt/AWTEventMulticaster.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -467,13 +416,6 @@
     <entry file="file://$PROJECT_DIR$/Transaction.ctxt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/RegisteredController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
@@ -481,31 +423,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Order.java">
+    <entry file="file://$PROJECT_DIR$/GUI_login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="64" column="34" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="34" />
+        <state relative-caret-position="315">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TransactionController.java">
+    <entry file="file://$PROJECT_DIR$/GUI_register.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="20" column="40" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="40" />
+        <state relative-caret-position="651">
+          <caret line="46" column="51" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CartUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1596">
+          <caret line="89" column="37" lean-forward="true" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+          <folding>
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
+            <element signature="e#1163#1164#0" expanded="true" />
+            <element signature="e#1182#1183#0" expanded="true" />
+            <element signature="e#1416#1417#0" expanded="true" />
+            <element signature="e#1442#1443#0" expanded="true" />
+            <element signature="e#1830#1831#0" expanded="true" />
+            <element signature="e#1857#1858#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RegisteredController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="68" column="7" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShelfController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="36" column="53" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+        <state relative-caret-position="533">
+          <caret line="172" column="7" selection-start-line="172" selection-start-column="7" selection-end-line="172" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Transaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+        <state relative-caret-position="294">
+          <caret line="130" column="7" selection-start-line="130" selection-start-column="7" selection-end-line="130" selection-end-column="7" />
           <folding>
             <element signature="e#961#962#0" expanded="true" />
             <element signature="e#993#994#0" expanded="true" />
@@ -513,10 +507,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TransactionController.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TransactionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Shelf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        <state relative-caret-position="462">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
           <folding>
             <element signature="e#505#506#0" expanded="true" />
             <element signature="e#541#542#0" expanded="true" />
@@ -524,61 +535,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#872#873#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CartController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="16" column="58" lean-forward="true" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
-          <folding>
-            <element signature="e#605#606#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#1548#1549#0" expanded="true" />
-            <element signature="e#1592#1593#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Registered.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="62" column="62" lean-forward="true" selection-start-line="62" selection-start-column="62" selection-end-line="62" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI_register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="46" column="51" lean-forward="true" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI_login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="442">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MainInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="1440" column="50" lean-forward="true" selection-start-line="1440" selection-start-column="50" selection-end-line="1440" selection-end-column="50" />
+        <state relative-caret-position="94">
+          <caret line="292" column="61" lean-forward="true" selection-start-line="292" selection-start-column="61" selection-end-line="292" selection-end-column="61" />
         </state>
       </provider>
     </entry>

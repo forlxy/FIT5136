@@ -7,11 +7,21 @@ public class Cart {
         return productList.add(product);
 
     }
-
+    /**
+     * remove product from the cart
+     * @param index
+     * @return
+     */
     public static boolean removeItem(int index) {
         return productList.remove(index) != null;
     }
 
+    /**
+     * update items to the cart.
+     * @param index
+     * @param num
+     * @return
+     */
     public static boolean updateCart(int index, int num) {
         if (num == 0)
             return productList.remove(index) != null;
@@ -27,6 +37,10 @@ public class Cart {
             productList = new ArrayList<Product>();
     }
 
+    /**
+     * clear the cart.
+     * @return
+     */
     public static boolean clearCart(){
         return productList.removeAll(productList);
     }
@@ -42,7 +56,11 @@ public class Cart {
     public static List<Product> getProductList() {
         return productList;
     }
-    
+
+    /**
+     * caculate total price.
+     * @return
+     */
     public static double getTotalPrice(){
         double total = 0;
         for (Product p: productList){

@@ -77,7 +77,11 @@ public class MainInterface {
         productTable.setModel(tableModel);
 
     }
-
+    /**
+     * Main GUI
+     * @param user
+     * @param state
+     */
     public MainInterface(Customer user, int state) {
         currentCustomer = user;
 
@@ -193,7 +197,9 @@ public class MainInterface {
         //mfvs.pack();
         mfvs.setVisible(true);
     }
-
+    /**
+     * GUI for cart.
+     */
     public class CartUI extends JFrame {
 
         private String[] tableColumn = {"ID", "Name", "FoodType", "Price", "Shelf Life"
@@ -228,7 +234,9 @@ public class MainInterface {
             };
 
             List<Product> cart = CartController.getProductList();
-
+            /**
+             * display the items in the cart.
+             */
             for (Product p : cart) {
                 Object[] data = {p.getId(), p.getName(), p.getType(), p.getPrice(), p.getShelfLife(), p.getStartDate(), p.getDiscountRate(), p.getSellType(), p.getProductNumber()};
 
@@ -237,6 +245,9 @@ public class MainInterface {
 
             productTable = new JTable(tableModel);
 
+            /**
+             * click product to add into the cart.
+             */
             productTable.addMouseListener(new MouseAdapter() {
                 public void mousePressed(MouseEvent mouseEvent) {
                     JTable table = (JTable) mouseEvent.getSource();
@@ -273,7 +284,9 @@ public class MainInterface {
                 }
             });
 
-
+            /**
+             * click the purchase button to make payment.
+             */
             purchaseButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
@@ -286,13 +299,10 @@ public class MainInterface {
                         updateShelf();
                         try {
                             RegisteredController.writeFile();
+                            TransactionController.writeFile();
+                            ShelfController.writeFile();
                         } catch (FileNotFoundException ex) {
                             ex.printStackTrace();
-                        }
-                        try {
-                            TransactionController.writeFile();
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Sorry, the cart is empty!");
@@ -331,7 +341,9 @@ public class MainInterface {
             add(bottomPanel, BorderLayout.SOUTH);
 
         }
-
+        /**
+         * empty the cart.
+         */
         public void clearCartUI() {
             CartController.clearCart();
             DefaultTableModel cartTableModel = new DefaultTableModel(tableColumn, 0) {
@@ -429,6 +441,9 @@ public class MainInterface {
     }
 
 
+    /**
+     * the interface for order.
+     */
     public class OrderProductUI extends JFrame {
         private String[] tableColumn = {"ID", "Name", "FoodType", "Price", "Shelf Life"
                 , "Start Date", "Discount Rate", "Sell Type", "Number of Product"};
@@ -490,6 +505,9 @@ public class MainInterface {
     }
 
 
+    /**
+     * An interface for product management.
+     */
     public class ManageProductUI extends JFrame {
         private String[] tableColumn = {"ID", "Name", "FoodType", "Price", "Shelf Life"
                 , "Start Date", "Discount Rate", "Sell Type", "Number of Product"};
@@ -598,7 +616,9 @@ public class MainInterface {
 
     }
 
-
+    /**
+     * An interface for searching.
+     */
     public class SearchUI extends JFrame {
         private String[] tableColumn = {"ID", "Name", "FoodType", "Price", "Shelf Life"
                 , "Start Date", "Discount Rate", "Sell Type", "Number of Product"};
@@ -687,6 +707,10 @@ public class MainInterface {
             init();
         }
 
+        /**
+         * display search results.
+         * @param pName
+         */
         public void updateSearchShelf(String pName) {
 
             DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
@@ -804,6 +828,7 @@ public class MainInterface {
 
                         Product pToc = new Product(product.getId(), product.getName(), product.getType(), product.getPrice(), product.getShelfLife(), product.getStartDate(), product.getDiscountRate(), product.getSellType(), purchaseQuantity);
                         CartController.addItem(pToc);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Sorry, the purchase quantity can not exceed in-stock quantity!");
                     }
@@ -1044,6 +1069,9 @@ public class MainInterface {
 
         private JTable productTable;
 
+        /**
+         * An interface for owner to add the product on the shelf.
+         */
         public void updateManageShelf() {
 
             DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
@@ -1404,7 +1432,9 @@ public class MainInterface {
 
         JTable productTable;
 
-
+        /**
+         * update product interface.
+         */
         public void updateManageShelf() {
 
             DefaultTableModel tableModel = new DefaultTableModel(tableColumn, 0) {
@@ -1756,6 +1786,9 @@ public class MainInterface {
         }
     }
 
+    /**
+     * An interface display the user's information.
+     */
     public class GUI_userInfo extends JFrame {
 
         private JMenuBar menuBar;

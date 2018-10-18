@@ -9,6 +9,7 @@ comment3.params=row\ column
 comment3.target=boolean\ isCellEditable(int,\ int)
 comment4.params=user\ state
 comment4.target=MainInterface(Customer,\ int)
+comment4.text=\r\n\ Main\ GUI\r\n\ @param\ user\r\n\ @param\ state\r\n
 comment5.params=row\ column
 comment5.target=boolean\ isCellEditable(int,\ int)
 comment6.params=mouseEvent

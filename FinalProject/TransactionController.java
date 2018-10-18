@@ -22,10 +22,19 @@ public class TransactionController {
         return Transaction.viewOrders();
     }
 
+    /**
+     * Get the information from database
+     * @throws FileNotFoundException
+     * @throws ParseException
+     */
     public static void readFile() throws FileNotFoundException, ParseException {
         Transaction.readFile();
     }
 
+    /**
+     * Save transaction information.
+     * @throws FileNotFoundException
+     */
     public static void writeFile() throws FileNotFoundException {
         Transaction.writeFile();
     }

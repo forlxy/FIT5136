@@ -21,7 +21,11 @@ public class Transaction {
         return viewOrders(customer).get(index);
     }
 
-    //Show All
+    /**
+     * Show all the order.
+     * @param customer
+     * @return
+     */
     public static List<Order> viewOrders(Customer customer){
         List<Order> customerOrder = new ArrayList<>();
         for (Order o : orderList) {
@@ -47,6 +51,9 @@ public class Transaction {
         initialize();
     }
 
+    /**
+     * initialize the orderList.
+     */
     public static void initialize() {
         if (orderList == null)
             orderList = new ArrayList<>();
@@ -60,6 +67,11 @@ public class Transaction {
         return orderList.add(order);
     }
 
+    /**
+     * Readfile file from database.
+     * @throws FileNotFoundException
+     * @throws ParseException
+     */
     public static void readFile() throws FileNotFoundException, ParseException {
         Scanner scanner = new Scanner(new File("transactions.csv"));
 //        scanner.useDelimiter(",");
@@ -113,6 +125,10 @@ public class Transaction {
         scanner.close();
     }
 
+    /**
+     * writeFile from the database.
+     * @throws FileNotFoundException
+     */
     public static void writeFile() throws FileNotFoundException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy/HH:mm:ss");
 

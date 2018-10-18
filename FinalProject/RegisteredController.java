@@ -9,6 +9,10 @@ import java.io.FileNotFoundException;
 
 
 public class RegisteredController {
+    /**
+     * readFile
+     * @throws FileNotFoundException
+     */
     public static void readFile() throws FileNotFoundException {
         Registered.readFile();
     }
@@ -36,7 +40,12 @@ public class RegisteredController {
     public static Customer getByEmail(String email) {
         return Registered.getByEmail(email);
     }
-    
+
+    /**
+     * validate Email address.
+     * @param email
+     * @return
+     */
     public static boolean validateEmail(String email) {
         String regex = "^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$";
         Pattern pattern = Pattern.compile(regex);
@@ -44,10 +53,20 @@ public class RegisteredController {
         return matcher.matches();
     }
 
+    /**
+     * validate Password.
+     * @param password
+     * @return
+     */
     public static boolean validatePassword(String password) {
        return password.length() > 5 && password.length() < 12;
     }
 
+    /**
+     * validate phone number.
+     * @param phone
+     * @return
+     */
     public static boolean validatePhone(String phone) {
         return (phone.length() == 10) && (phone.charAt(0) == '0' );
 

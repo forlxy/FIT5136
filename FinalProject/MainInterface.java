@@ -101,7 +101,6 @@ public class MainInterface {
                 return false;
             }
         };
-
         shelf = ShelfController.getShelfProducts();
 
         for (Product p : shelf) {

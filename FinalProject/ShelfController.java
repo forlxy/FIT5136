@@ -22,6 +22,7 @@ public class ShelfController {
         return Shelf.searchProduct(productName);
     }
     public static void readFile() throws FileNotFoundException, ParseException {
+        Shelf.getShelfProducts().clear();
         Shelf.readFile();
     }
     public static void writeFile() throws FileNotFoundException{

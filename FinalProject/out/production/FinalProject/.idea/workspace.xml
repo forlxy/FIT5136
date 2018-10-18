@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="85992b04-5a76-439b-9580-05a58e3562d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/CartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Customer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI_changePassword.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_changePassword.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI_register.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_register.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/MainInterface$1.class" afterDir="false" />
@@ -61,6 +62,7 @@
       <change beforePath="$PROJECT_DIR$/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/Order.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Order.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/Order.ctxt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shelf.class" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shelf.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shelf.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.ctxt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ShelfController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ShelfController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ShelfController.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/ShelfController.ctxt" afterDir="false" />
@@ -69,6 +71,7 @@
       <change beforePath="$PROJECT_DIR$/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TransactionController.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionController.ctxt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/package.bluej" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/transactions.csv" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,7 +84,7 @@
     <session id="2071209780">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
@@ -102,12 +105,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3251" />
+          <entry key="java" value="3367" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3251" />
+          <entry key="JAVA" value="3367" />
         </counts>
       </usages-collector>
     </session>
@@ -117,7 +120,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shelf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
+            <state relative-caret-position="-525">
               <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#541#542#0" expanded="true" />
@@ -156,19 +159,37 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI_register.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3276">
+            <state relative-caret-position="652">
               <caret line="171" column="40" selection-start-line="171" selection-start-column="40" selection-end-line="171" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="165" column="9" selection-start-line="165" selection-start-column="9" selection-end-line="165" selection-end-column="9" />
+            <state relative-caret-position="136">
+              <caret line="691" column="37" lean-forward="true" selection-start-line="691" selection-start-column="37" selection-end-line="691" selection-end-column="37" />
               <folding>
+                <element signature="e#9220#9221#0" expanded="true" />
+                <element signature="e#9269#9270#0" expanded="true" />
+                <element signature="e#14871#14872#0" expanded="true" />
+                <element signature="e#14920#14921#0" expanded="true" />
+                <element signature="e#16711#16712#0" expanded="true" />
+                <element signature="e#16760#16761#0" expanded="true" />
+                <element signature="e#19924#19925#0" expanded="true" />
+                <element signature="e#19973#19974#0" expanded="true" />
+                <element signature="e#23144#23145#0" expanded="true" />
+                <element signature="e#23228#23229#0" expanded="true" />
+                <element signature="e#23407#23408#0" expanded="true" />
+                <element signature="e#23456#23457#0" expanded="true" />
+                <element signature="e#25074#25605#0" expanded="true" />
+                <element signature="e#25604#25605#0" expanded="true" />
                 <element signature="class#GUI_editCart#0;class#MainInterface#0" />
+                <element signature="e#86163#86164#0" expanded="true" />
+                <element signature="e#86227#86228#0" expanded="true" />
+                <element signature="e#87038#87039#0" expanded="true" />
+                <element signature="e#87103#87104#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -186,7 +207,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
+            <state relative-caret-position="525">
               <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
               <folding>
                 <element signature="e#961#962#0" expanded="true" />
@@ -199,17 +220,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Order.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1134">
+            <state relative-caret-position="504">
               <caret line="64" column="34" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ShelfController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="127">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -218,7 +239,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addtoc</find>
       <find>GUI_Add</find>
       <find>clearbutton</find>
       <find>clearb</find>
@@ -241,13 +261,14 @@
       <find>parse</find>
       <find>shelfEditDelete_discountRate_ltextfield</find>
       <find>purchase</find>
-      <find>search</find>
       <find>updatemana</find>
       <find>getCu</find>
       <find>getCurrentUser</find>
       <find>orderbutton</find>
       <find>ORDERUI</find>
       <find>state</find>
+      <find>search</find>
+      <find>searchUI</find>
     </findStrings>
     <replaceStrings>
       <replace>shelfEditDelete_discountRate_textfield</replace>
@@ -380,7 +401,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.1921824" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.18566775" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.46254072" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
@@ -495,23 +516,6 @@
     <entry file="file://$PROJECT_DIR$/Transaction.ctxt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Shelf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#541#542#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RegisteredController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Registered.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1659">
@@ -526,10 +530,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/RegisteredController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI_register.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3276">
+        <state relative-caret-position="652">
           <caret line="171" column="40" selection-start-line="171" selection-start-column="40" selection-end-line="171" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="691" column="37" lean-forward="true" selection-start-line="691" selection-start-column="37" selection-end-line="691" selection-end-column="37" />
+          <folding>
+            <element signature="e#9220#9221#0" expanded="true" />
+            <element signature="e#9269#9270#0" expanded="true" />
+            <element signature="e#14871#14872#0" expanded="true" />
+            <element signature="e#14920#14921#0" expanded="true" />
+            <element signature="e#16711#16712#0" expanded="true" />
+            <element signature="e#16760#16761#0" expanded="true" />
+            <element signature="e#19924#19925#0" expanded="true" />
+            <element signature="e#19973#19974#0" expanded="true" />
+            <element signature="e#23144#23145#0" expanded="true" />
+            <element signature="e#23228#23229#0" expanded="true" />
+            <element signature="e#23407#23408#0" expanded="true" />
+            <element signature="e#23456#23457#0" expanded="true" />
+            <element signature="e#25074#25605#0" expanded="true" />
+            <element signature="e#25604#25605#0" expanded="true" />
+            <element signature="class#GUI_editCart#0;class#MainInterface#0" />
+            <element signature="e#86163#86164#0" expanded="true" />
+            <element signature="e#86227#86228#0" expanded="true" />
+            <element signature="e#87038#87039#0" expanded="true" />
+            <element signature="e#87103#87104#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -537,16 +576,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="20" column="40" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="40" />
-          <folding>
-            <element signature="e#587#588#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Transaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
+        <state relative-caret-position="525">
           <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
           <folding>
             <element signature="e#961#962#0" expanded="true" />
@@ -557,25 +592,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
+        <state relative-caret-position="504">
           <caret line="64" column="34" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shelf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-525">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#541#542#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShelfController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MainInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="165" column="9" selection-start-line="165" selection-start-column="9" selection-end-line="165" selection-end-column="9" />
-          <folding>
-            <element signature="class#GUI_editCart#0;class#MainInterface#0" />
-          </folding>
+        <state relative-caret-position="127">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>

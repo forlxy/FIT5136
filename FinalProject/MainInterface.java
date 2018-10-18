@@ -258,6 +258,14 @@ public class MainInterface
                 }
             });
 
+            clearButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    clearCartUI();
+                }
+            });
+
+
             purchaseButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
@@ -305,6 +313,20 @@ public class MainInterface
             add(buttonPanel, BorderLayout.NORTH);
             add(new JScrollPane(productTable), BorderLayout.CENTER);
             add(bottomPanel, BorderLayout.SOUTH);
+
+        }
+
+        public void clearCartUI(){
+            CartController.clearCart();
+            DefaultTableModel cartTableModel = new DefaultTableModel(tableColumn, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
+
+            productTable.setModel(cartTableModel);
 
         }
 

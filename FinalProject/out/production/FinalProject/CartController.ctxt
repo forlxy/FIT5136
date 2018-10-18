@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=CartController
+comment1.params=product
+comment1.target=boolean\ addItem(Product)
+comment2.params=index
+comment2.target=boolean\ removeItem(int)
+comment3.params=index\ num
+comment3.target=boolean\ updateCart(int,\ int)
+comment4.params=
+comment4.target=boolean\ clearCart()
+comment5.params=
+comment5.target=boolean\ purchase()
+comment6.params=
+comment6.target=java.util.List\ getProductList()
+numComments=7

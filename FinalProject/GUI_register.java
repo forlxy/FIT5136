@@ -38,7 +38,7 @@ public class GUI_register extends JFrame {
         this.setTitle("GUI_register");
         this.setSize(400,500);
         //menu generate method
-        generateMenu();
+      //  generateMenu();
         this.setJMenuBar(menuBar);
 
         //pane with null layout
@@ -223,41 +223,41 @@ public class GUI_register extends JFrame {
     }
 
     //method for generate menu
-    public void generateMenu(){
-        menuBar = new JMenuBar();
-
-        JMenu file = new JMenu("File");
-        JMenu tools = new JMenu("Tools");
-        JMenu help = new JMenu("Help");
-
-        JMenuItem open = new JMenuItem("Open   ");
-        JMenuItem save = new JMenuItem("Save   ");
-        JMenuItem exit = new JMenuItem("Exit   ");
-        JMenuItem preferences = new JMenuItem("Preferences   ");
-        JMenuItem about = new JMenuItem("About   ");
-
-
-        file.add(open);
-        file.add(save);
-        file.addSeparator();
-        file.add(exit);
-        tools.add(preferences);
-        help.add(about);
-
-        menuBar.add(file);
-        menuBar.add(tools);
-        menuBar.add(help);
-    }
+//    public void generateMenu(){
+//        menuBar = new JMenuBar();
+//
+//        JMenu file = new JMenu("File");
+//        JMenu tools = new JMenu("Tools");
+//        JMenu help = new JMenu("Help");
+//
+//        JMenuItem open = new JMenuItem("Open   ");
+//        JMenuItem save = new JMenuItem("Save   ");
+//        JMenuItem exit = new JMenuItem("Exit   ");
+//        JMenuItem preferences = new JMenuItem("Preferences   ");
+//        JMenuItem about = new JMenuItem("About   ");
+//
+//
+//        file.add(open);
+//        file.add(save);
+//        file.addSeparator();
+//        file.add(exit);
+//        tools.add(preferences);
+//        help.add(about);
+//
+//        menuBar.add(file);
+//        menuBar.add(tools);
+//        menuBar.add(help);
+//    }
 
 
 
      public static void main(String[] args){
-        System.setProperty("swing.defaultlaf", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
+       // System.setProperty("swing.defaultlaf", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+        //javax.swing.SwingUtilities.invokeLater(new Runnable() {
+         //   public void run() {
                 new GUI_register();
-            }
-        });
+          //  }
+        //});
     }
 
 }

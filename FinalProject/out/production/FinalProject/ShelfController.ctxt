@@ -1,0 +1,30 @@
+#BlueJ class context
+<<<<<<< HEAD
+comment0.target=ShelfController
+comment1.params=index\ productNumber
+comment1.target=boolean\ updateProduct(int,\ int)
+comment2.params=product
+comment2.target=boolean\ insertProduct(Product)
+comment3.params=index
+comment3.target=boolean\ removeProduct(int)
+comment4.params=productName
+comment4.target=java.util.List\ searchProduct(java.lang.String)
+=======
+comment0.params=index\ newProduct
+comment0.target=boolean\ updateProduct(int,\ Product)
+comment1.params=product
+comment1.target=boolean\ insertProduct(Product)
+comment2.params=index
+comment2.target=boolean\ removeProduct(int)
+comment3.params=productName
+comment3.target=java.util.List\ searchProduct(java.lang.String)
+comment4.params=
+comment4.target=void\ readFile()
+>>>>>>> Hanfang
+comment5.params=
+comment5.target=void\ readFile()
+comment6.params=
+comment6.target=void\ writeFile()
+comment7.params=
+comment7.target=java.util.List\ getShelfProducts()
+numComments=8

@@ -1,0 +1,54 @@
+#BlueJ class context
+comment0.target=Shelf
+comment1.params=
+comment1.target=Shelf()
+comment10.params=
+comment10.target=boolean\ validateProductShelfLife()
+comment11.params=strStartDate
+comment11.target=boolean\ validateProductStartDate(java.lang.String)
+comment12.params=discountRate
+comment12.target=boolean\ validateProductDiscountRate(int)
+comment13.params=
+comment13.target=boolean\ validateProductSellType()
+comment14.params=
+<<<<<<< HEAD
+comment14.target=void\ readFile()
+comment15.params=
+comment15.target=void\ writeFile()
+comment2.params=
+comment2.target=java.util.List\ getShelfProducts()
+comment3.params=productName
+comment3.target=java.util.List\ searchProduct(java.lang.String)
+comment4.params=index\ productNumeber
+comment4.target=boolean\ updateProduct(int,\ int)
+comment5.params=product
+comment5.target=boolean\ insertProduct(Product)
+comment6.params=index
+comment6.target=boolean\ removeProduct(int)
+comment7.params=name
+comment7.target=boolean\ validateProductName(java.lang.String)
+comment8.params=type
+comment8.target=boolean\ validateProductType(int)
+comment9.params=price
+comment9.target=boolean\ validateProductPrice(double)
+numComments=16
+=======
+comment14.target=void\ writeFile()
+comment2.params=productName
+comment2.target=java.util.List\ searchProduct(java.lang.String)
+comment3.params=index\ newProduct
+comment3.target=boolean\ updateProduct(int,\ Product)
+comment4.params=product
+comment4.target=boolean\ insertProduct(Product)
+comment5.params=index
+comment5.target=boolean\ removeProduct(int)
+comment6.params=name
+comment6.target=boolean\ validateProductName(java.lang.String)
+comment7.params=type
+comment7.target=boolean\ validateProductType(int)
+comment8.params=price
+comment8.target=boolean\ validateProductPrice(double)
+comment9.params=
+comment9.target=boolean\ validateProductShelfLife()
+numComments=15
+>>>>>>> Hanfang

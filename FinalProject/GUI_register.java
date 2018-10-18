@@ -36,7 +36,7 @@ public class GUI_register extends JFrame {
     //Constructor 
     public GUI_register() {
 
-        this.setTitle("GUI_register");
+        this.setTitle("Register");
         this.setSize(400, 500);
         //menu generate method
         //  generateMenu();

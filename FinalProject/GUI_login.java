@@ -36,7 +36,7 @@ public class GUI_login extends JFrame {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        this.setTitle("GUI_login");
+        this.setTitle("Login");
         this.setSize(400, 300);
         //menu generate method
         //generateMenu();

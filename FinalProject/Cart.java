@@ -46,7 +46,7 @@ public class Cart {
     public static double getTotalPrice(){
         double total = 0;
         for (Product p: productList){
-            total += p.getPrice() * p.getProductNumber();
+            total += p.getPrice() * p.getProductNumber() * p.getDiscountRate();
         }
         return total;
     }

@@ -18,6 +18,7 @@ public class ShelfController {
         return Shelf.removeProduct(index);
     }
 
+
     public static List<Product> searchProduct(String productName) {
         return Shelf.searchProduct(productName);
     }

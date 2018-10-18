@@ -14,7 +14,11 @@ public class CartController {
     }
 
     public static boolean updateCart(int index, int num) {
-        return Cart.updateCart(index, num);
+        int currentNum = Cart.getProductList().get(index).getProductNumber();
+        if (num <= currentNum ) {
+            return Cart.updateCart(index, num);
+        }
+        return false;
     }
 
     public static boolean clearCart(){
@@ -22,19 +26,23 @@ public class CartController {
     }
 
     public static boolean purchase() {
-        Order newOrder = new Order(UUID.randomUUID().toString(), MainInterface.getCurrentUser(), new ArrayList<>(Cart.getProductList()), new Date(), Cart.getTotalPrice());
-        boolean result = Transaction.addOrder(newOrder);
-        for(Order o: Transaction.getOrderList()){
-            System.out.println(o);
-        }
-        for (Product pInCart: Cart.getProductList()) {
-            Product pOnShelf= Shelf.getProductById(pInCart.getId());
-            if (pOnShelf != null) {
-                pOnShelf.setProductNumber(pOnShelf.getProductNumber() - pInCart.getProductNumber());
+        if (Cart.getProductList().size() !=0) {
+            Order newOrder = new Order(UUID.randomUUID().toString(), MainInterface.getCurrentUser(), new ArrayList<>(Cart.getProductList()), new Date(), Cart.getTotalPrice());
+            boolean result = Transaction.addOrder(newOrder);
+            for(Order o: Transaction.getOrderList()){
+                System.out.println(o);
             }
+            for (Product pInCart: Cart.getProductList()) {
+                Product pOnShelf= Shelf.getProductById(pInCart.getId());
+                if (pOnShelf != null) {
+                    pOnShelf.setProductNumber(pOnShelf.getProductNumber() - pInCart.getProductNumber());
+                }
+            }
+            clearCart();
+            return result;
+        } else {
+            return false;
         }
-        clearCart();
-        return result;
     }
 
     public static List<Product> getProductList() {

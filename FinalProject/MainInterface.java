@@ -195,6 +195,7 @@ public class MainInterface {
     }
 
     public class CartUI extends JFrame {
+
         private String[] tableColumn = {"ID", "Name", "FoodType", "Price", "Shelf Life"
                 , "Start Date", "Discount Rate", "Sell Type", "Number of Product"};
 
@@ -293,6 +294,8 @@ public class MainInterface {
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Sorry, the cart is empty!");
                     }
                     dispose();
                 }
@@ -304,6 +307,7 @@ public class MainInterface {
             editProductDialog = new Dialog(mfvs, true);
             checkStorageDialog = new Dialog(mfvs, true);
             cartDialog = new Dialog(mfvs, true);
+
             init();
         }
 
@@ -320,7 +324,7 @@ public class MainInterface {
             bottomPanel.add(purchaseButton);
             bottomPanel.add(clearButton);
             bottomPanel.add(closeButton);
-
+            setTitle("Cart");
             setLayout(new BorderLayout());
             add(buttonPanel, BorderLayout.NORTH);
             add(new JScrollPane(productTable), BorderLayout.CENTER);
@@ -413,7 +417,7 @@ public class MainInterface {
             setBounds(400, 250, 800, 400);
 
             bottomPanel.add(closeButton);
-
+            setTitle("Order");
             setLayout(new BorderLayout());
             add(buttonPanel, BorderLayout.NORTH);
             add(new JScrollPane(orderTable), BorderLayout.CENTER);
@@ -474,7 +478,7 @@ public class MainInterface {
             setBounds(400, 250, 800, 400);
 
             bottomPanel.add(closeButton);
-
+            setTitle("Order Details");
             setLayout(new BorderLayout());
             add(buttonPanel, BorderLayout.NORTH);
             add(new JScrollPane(productTable), BorderLayout.CENTER);
@@ -579,7 +583,7 @@ public class MainInterface {
             editProductDialog.setBounds(300, 300, 200, 170);
             checkStorageDialog.setBounds(300, 300, 200, 170);
             cartDialog.setBounds(300, 300, 200, 170);
-
+            setTitle("Management");
             buttonPanel.add(addButton);
 
             bottomPanel.add(closeButton);
@@ -721,7 +725,7 @@ public class MainInterface {
 
         public void init() {
             setBounds(400, 250, 800, 400);
-
+            setTitle("Search");
             buttonPanel.add(searchTextField);
             buttonPanel.add(searchButton);
 
@@ -751,7 +755,7 @@ public class MainInterface {
         //Constructor
         public GUI_addToCart(Product product) {
 
-            this.setTitle("GUI_addToCart");
+            this.setTitle("Add to cart");
             this.setSize(303, 170);
             //menu generate method
             //generateMenu();
@@ -973,9 +977,14 @@ public class MainInterface {
             editCart_add_button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
-                    CartController.updateCart(row, Integer.parseInt(editCart_number_textfield.getText()));
-                    updateCart();
-                    dispose();
+                    if (CartController.updateCart(row, Integer.parseInt(editCart_number_textfield.getText()))){
+                        updateCart();
+                        dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Sorry, the purchase quantity can not exceed in-stock quantity!");
+                    }
+
+
                 }
             });
             editCart_delete_button.addActionListener(new ActionListener() {
@@ -1061,15 +1070,15 @@ public class MainInterface {
         public GUI_shelfAdd(JTable productTable) {
 
             this.productTable = productTable;
-            this.setTitle("GUI_shelfAdd");
-            this.setSize(533, 504);
+            this.setTitle("Add to Shelf");
+            this.setSize(322, 474);
             //menu generate method
             //generateMenu();
             this.setJMenuBar(menuBar);
 
             //pane with null layout
             JPanel contentPane = new JPanel(null);
-            contentPane.setPreferredSize(new Dimension(533, 504));
+            contentPane.setPreferredSize(new Dimension(322, 474));
             contentPane.setBackground(new Color(192, 192, 192));
 
 
@@ -1253,7 +1262,7 @@ public class MainInterface {
 
             shelfAdd_pannel = new JPanel(null);
             shelfAdd_pannel.setBorder(BorderFactory.createEtchedBorder(1));
-            shelfAdd_pannel.setBounds(81, 9, 322, 474);
+            shelfAdd_pannel.setBounds(-5, -5, 322, 474);
             shelfAdd_pannel.setBackground(new Color(214, 217, 223));
             shelfAdd_pannel.setForeground(new Color(0, 0, 0));
             shelfAdd_pannel.setEnabled(true);
@@ -1422,7 +1431,7 @@ public class MainInterface {
         public GUI_shelfEditDelete(JTable productTable, int row, Product product) {
 
             this.productTable = productTable;
-            this.setTitle("GUI_shelfEditDelete");
+            this.setTitle("Edit shelf");
             this.setSize(322, 474);
             //menu generate method
             //generateMenu();
@@ -1767,7 +1776,7 @@ public class MainInterface {
         //Constructor
         public GUI_userInfo() {
 
-            this.setTitle("GUI_userInfo");
+            this.setTitle("User information");
             this.setSize(400, 300);
             //menu generate method
             this.setJMenuBar(menuBar);

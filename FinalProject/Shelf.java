@@ -49,6 +49,7 @@ public class Shelf {
         return null;
     }
 
+
     public static boolean insertProduct(Product product) {
         return shelfProducts.add(product);
     }

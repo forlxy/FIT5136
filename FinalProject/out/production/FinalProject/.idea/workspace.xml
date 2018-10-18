@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85992b04-5a76-439b-9580-05a58e3562d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/CartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Customer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_changePassword.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_changePassword.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_register.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/MainInterface$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/MainInterface$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/MainInterface$3.class" afterDir="false" />
@@ -57,21 +54,60 @@
       <change beforePath="$PROJECT_DIR$/MainInterface$SearchUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/MainInterface$SearchUI$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainInterface$SearchUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/MainInterface$SearchUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/MainInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainInterface.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/MainInterface.ctxt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/MainInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Order.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/Order.ctxt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shelf.class" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shelf.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shelf.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.ctxt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShelfController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ShelfController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShelfController.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/ShelfController.ctxt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Transaction.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/Transaction.ctxt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransactionController.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionController.ctxt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShelfController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShelfController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$CartUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_addToCart$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_addToCart$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_addToCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_addToCart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_editCart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfAdd.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_shelfEditDelete.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$GUI_userInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$ManageProductUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderProductUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$OrderUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface$SearchUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/MainInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/MainInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/Shelf.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/Shelf.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/ShelfController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/ShelfController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/package.bluej" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/package.bluej" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/transactions.csv" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,11 +120,11 @@
     <session id="2071209780">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -105,12 +141,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3367" />
+          <entry key="java" value="3430" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3367" />
+          <entry key="JAVA" value="3430" />
         </counts>
       </usages-collector>
     </session>
@@ -120,7 +156,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shelf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-525">
+            <state relative-caret-position="294">
               <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#541#542#0" expanded="true" />
@@ -141,7 +177,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Registered.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1659">
+            <state relative-caret-position="652">
               <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
             </state>
           </provider>
@@ -168,28 +204,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="691" column="37" lean-forward="true" selection-start-line="691" selection-start-column="37" selection-end-line="691" selection-end-column="37" />
+            <state relative-caret-position="451">
+              <caret line="68" column="28" lean-forward="true" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
               <folding>
-                <element signature="e#9220#9221#0" expanded="true" />
-                <element signature="e#9269#9270#0" expanded="true" />
-                <element signature="e#14871#14872#0" expanded="true" />
-                <element signature="e#14920#14921#0" expanded="true" />
-                <element signature="e#16711#16712#0" expanded="true" />
-                <element signature="e#16760#16761#0" expanded="true" />
-                <element signature="e#19924#19925#0" expanded="true" />
-                <element signature="e#19973#19974#0" expanded="true" />
-                <element signature="e#23144#23145#0" expanded="true" />
-                <element signature="e#23228#23229#0" expanded="true" />
-                <element signature="e#23407#23408#0" expanded="true" />
-                <element signature="e#23456#23457#0" expanded="true" />
-                <element signature="e#25074#25605#0" expanded="true" />
-                <element signature="e#25604#25605#0" expanded="true" />
                 <element signature="class#GUI_editCart#0;class#MainInterface#0" />
-                <element signature="e#86163#86164#0" expanded="true" />
-                <element signature="e#86227#86228#0" expanded="true" />
-                <element signature="e#87038#87039#0" expanded="true" />
-                <element signature="e#87103#87104#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -207,7 +225,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="483">
               <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
               <folding>
                 <element signature="e#961#962#0" expanded="true" />
@@ -220,7 +238,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Order.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
+            <state relative-caret-position="1134">
               <caret line="64" column="34" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="34" />
             </state>
           </provider>
@@ -229,8 +247,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ShelfController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="357">
+              <caret line="27" column="64" lean-forward="true" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -239,7 +257,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>GUI_Add</find>
       <find>clearbutton</find>
       <find>clearb</find>
       <find>addtoca</find>
@@ -269,6 +286,7 @@
       <find>state</find>
       <find>search</find>
       <find>searchUI</find>
+      <find>readfile</find>
     </findStrings>
     <replaceStrings>
       <replace>shelfEditDelete_discountRate_textfield</replace>
@@ -286,11 +304,11 @@
         <option value="$PROJECT_DIR$/GUI_changePassword.java" />
         <option value="$PROJECT_DIR$/CartController.java" />
         <option value="$PROJECT_DIR$/Shelf.java" />
-        <option value="$PROJECT_DIR$/ShelfController.java" />
         <option value="$PROJECT_DIR$/Order.java" />
         <option value="$PROJECT_DIR$/TransactionController.java" />
         <option value="$PROJECT_DIR$/Transaction.java" />
         <option value="$PROJECT_DIR$/MainInterface.java" />
+        <option value="$PROJECT_DIR$/ShelfController.java" />
       </list>
     </option>
   </component>
@@ -305,7 +323,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -317,7 +335,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -390,7 +408,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15458423" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15618336" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -456,9 +474,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-122">
           <caret line="89" column="37" lean-forward="true" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -473,12 +488,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-          <folding>
-            <element signature="e#180#181#0" expanded="true" />
-            <element signature="e#224#225#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -500,9 +509,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="41" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#872#873#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -516,10 +522,13 @@
     <entry file="file://$PROJECT_DIR$/Transaction.ctxt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Registered.java">
+    <entry file="file://$PROJECT_DIR$/Shelf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1659">
-          <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
+        <state relative-caret-position="294">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#541#542#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -527,6 +536,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3402">
           <caret line="177" column="2" selection-start-line="177" selection-start-column="2" selection-end-line="177" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TransactionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+          <folding>
+            <element signature="e#961#962#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="64" column="34" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Registered.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="652">
+          <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -546,71 +587,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MainInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="691" column="37" lean-forward="true" selection-start-line="691" selection-start-column="37" selection-end-line="691" selection-end-column="37" />
+        <state relative-caret-position="451">
+          <caret line="68" column="28" lean-forward="true" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
           <folding>
-            <element signature="e#9220#9221#0" expanded="true" />
-            <element signature="e#9269#9270#0" expanded="true" />
-            <element signature="e#14871#14872#0" expanded="true" />
-            <element signature="e#14920#14921#0" expanded="true" />
-            <element signature="e#16711#16712#0" expanded="true" />
-            <element signature="e#16760#16761#0" expanded="true" />
-            <element signature="e#19924#19925#0" expanded="true" />
-            <element signature="e#19973#19974#0" expanded="true" />
-            <element signature="e#23144#23145#0" expanded="true" />
-            <element signature="e#23228#23229#0" expanded="true" />
-            <element signature="e#23407#23408#0" expanded="true" />
-            <element signature="e#23456#23457#0" expanded="true" />
-            <element signature="e#25074#25605#0" expanded="true" />
-            <element signature="e#25604#25605#0" expanded="true" />
             <element signature="class#GUI_editCart#0;class#MainInterface#0" />
-            <element signature="e#86163#86164#0" expanded="true" />
-            <element signature="e#86227#86228#0" expanded="true" />
-            <element signature="e#87038#87039#0" expanded="true" />
-            <element signature="e#87103#87104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TransactionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="20" column="40" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
-          <folding>
-            <element signature="e#961#962#0" expanded="true" />
-            <element signature="e#993#994#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="64" column="34" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shelf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#541#542#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShelfController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="357">
+          <caret line="27" column="64" lean-forward="true" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
         </state>
       </provider>
     </entry>

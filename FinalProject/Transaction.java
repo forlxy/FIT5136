@@ -31,6 +31,10 @@ public class Transaction {
         return customerOrder;
     }
 
+    public static List<Order> viewOrders() {
+        return orderList;
+    }
+
     public Transaction(List<Order> orderList) {
         this.orderList = orderList;
     }

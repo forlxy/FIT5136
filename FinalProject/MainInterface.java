@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -52,10 +53,6 @@ public class MainInterface {
         return currentCustomer;
     }
 
-    public void updateAllShelf() {
-        updateShelf();
-
-    }
 
     public void updateShelf() {
 
@@ -150,10 +147,10 @@ public class MainInterface {
 //        addProductDialog = new Dialog(mfvs, true);
 //        editProductDialog = new Dialog(mfvs, true);
 //        checkStorageDialog = new Dialog(mfvs, true);
-        init();
+        init(state);
     }
 
-    public void init() {
+    public void init(int state) {
         mfvs.setBounds(400, 250, 800, 400);
 //        loginDialog.setBounds(300, 300, 200, 170);
 //        registerDialog.setBounds(300, 300, 200, 170);
@@ -162,9 +159,10 @@ public class MainInterface {
 //        editProductDialog.setBounds(300, 300, 200, 170);
 //        checkStorageDialog.setBounds(300, 300, 200, 170);
 //        cartDialog.setBounds(300, 300, 200, 170);
-
+        if (state == 0) {
+            buttonPanel.add(productButton);
+        }
         buttonPanel.add(searchButton);
-        buttonPanel.add(productButton);
         buttonPanel.add(cartButton);
         buttonPanel.add(orderButton);
         buttonPanel.add(personButton);
@@ -370,12 +368,19 @@ public class MainInterface {
                 }
             };
 
-            List<Order> orders = TransactionController.viewOrders(getCurrentUser());
-
-            for (Order o : orders) {
-                Object[] data = {o.getId(), o.getCustomer().getEmail(), o.getTime(), o.getPaidPrice()};
-
-                tableModel.addRow(data);
+            List<Order> orders;
+            if (getCurrentUser().getEmail().equals("admin@test.com")) {
+                 orders = TransactionController.viewOrders();
+                for (Order o : orders) {
+                    Object[] data = {o.getId(), o.getCustomer().getEmail(), o.getTime(), o.getPaidPrice()};
+                    tableModel.addRow(data);
+                }
+            } else {
+                orders = TransactionController.viewOrders(getCurrentUser());
+                for (Order o : orders) {
+                    Object[] data = {o.getId(), o.getCustomer().getEmail(), o.getTime(), o.getPaidPrice()};
+                    tableModel.addRow(data);
+                }
             }
 
             orderTable = new JTable(tableModel);
@@ -607,7 +612,6 @@ public class MainInterface {
         private JButton searchButton;
 
 
-
         public SearchUI() {
 
 
@@ -649,7 +653,7 @@ public class MainInterface {
 
 
             //searchTextField.setBounds(144, 62, 150, 31);
-            searchTextField.setPreferredSize(new Dimension(150,31));
+            searchTextField.setPreferredSize(new Dimension(150, 31));
 
             clearButton = new JButton("Clear");
             closeButton = new JButton("Close");
@@ -673,7 +677,7 @@ public class MainInterface {
             searchButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
-                    System.out.printf(searchTextField.getText());
+                    System.out.println(searchTextField.getText());
                     updateSearchShelf(searchTextField.getText());
                 }
             });
@@ -792,6 +796,7 @@ public class MainInterface {
                     if (purchaseQuantity > 0 && purchaseQuantity <= product.getProductNumber()) {
                         //product.setProductNumber(product.getProductNumber() - purchaseQuantity);
                         updateShelf();
+
                         Product pToc = new Product(product.getId(), product.getName(), product.getType(), product.getPrice(), product.getShelfLife(), product.getStartDate(), product.getDiscountRate(), product.getSellType(), purchaseQuantity);
                         CartController.addItem(pToc);
                     } else {
@@ -844,34 +849,6 @@ public class MainInterface {
             this.pack();
             this.setVisible(true);
         }
-
-//        //method for generate menu
-//        public void generateMenu(){
-//            menuBar = new JMenuBar();
-//
-//            JMenu file = new JMenu("File");
-//            JMenu tools = new JMenu("Tools");
-//            JMenu help = new JMenu("Help");
-//
-//            JMenuItem open = new JMenuItem("Open   ");
-//            JMenuItem save = new JMenuItem("Save   ");
-//            JMenuItem exit = new JMenuItem("Exit   ");
-//            JMenuItem preferences = new JMenuItem("Preferences   ");
-//            JMenuItem about = new JMenuItem("About   ");
-//
-//
-//            file.add(open);
-//            file.add(save);
-//            file.addSeparator();
-//            file.add(exit);
-//            tools.add(preferences);
-//            help.add(about);
-//
-//            menuBar.add(file);
-//            menuBar.add(tools);
-//            menuBar.add(help);
-//        }
-
     }
 
 
@@ -1127,20 +1104,59 @@ public class MainInterface {
             shelfAdd_confirm_button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
-                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                    if (shelf_id_textfield.getText().equals("") || shelf_name_textfield.getText().equals("") || shelf_type_textfield.getText().equals("")
+                            || shelf_price_textfield4.getText().equals("") || shelf_shelfLife_textfield.getText().equals("") || shelf_startDate_textfield.getText().equals("")
+                            || shelf_discountRate_ltextfield.getText().equals("") || shelf_sellType_textfield.getText().equals("") || shelf_productNumber_textfield.getText().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Sorry, one or more text fields are empty");
+                    } else {
+                        try {
+                            int pId = Integer.parseInt(shelf_id_textfield.getText());
+                            String pName = shelf_name_textfield.getText();
+                            int pType = Integer.parseInt(shelf_type_textfield.getText());
+                            double pPrice = Double.parseDouble(shelf_price_textfield4.getText());
+                            int pLife = Integer.parseInt(shelf_shelfLife_textfield.getText());
+                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                            String date = shelf_startDate_textfield.getText();
+                            Date pDate = formatter.parse(shelf_startDate_textfield.getText());
+                            double pRate = Double.parseDouble(shelf_discountRate_ltextfield.getText());
+                            int pSellType = Integer.parseInt(shelf_sellType_textfield.getText());
+                            int pNum = Integer.parseInt(shelf_productNumber_textfield.getText());
+                            if (!ShelfController.validateProductId(pId)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product Id is invalid!");
+                            } else if (!ShelfController.validateProductName(pName)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product name is invalid!");
+                            } else if (!ShelfController.validateProductType(pType)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product type is invalid!");
+                            } else if (!ShelfController.validateProductPrice(pPrice)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product price is invalid!");
+                            } else if (!ShelfController.validateProductShelfLife(pLife)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product shelf life is invalid!");
+                            } else if (!ShelfController.validateProductStartDate(date)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product date is invalid!");
+                            } else if (!ShelfController.validateProductDiscountRate(pRate)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product discount rate is invalid!");
+                            } else if (!ShelfController.validateProductSellType(pSellType)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product sell type is invalid!");
+                            } else if (!ShelfController.validateProductNum(pNum)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product quantity is invalid!");
+                            } else {
+                                Product product = new Product(pId, pName, pType, pPrice, pLife, pDate, pRate, pSellType, pNum);
 
-                    try {
-                        Product product = new Product(Integer.parseInt(shelf_id_textfield.getText()), shelf_name_textfield.getText(), Integer.parseInt(shelf_type_textfield.getText()),
-                                Double.parseDouble(shelf_price_textfield4.getText()), Integer.parseInt(shelf_shelfLife_textfield.getText()), formatter.parse(shelf_startDate_textfield.getText()),
-                                Double.parseDouble(shelf_discountRate_ltextfield.getText()), Integer.parseInt(shelf_sellType_textfield.getText()), Integer.parseInt(shelf_productNumber_textfield.getText()));
-
-                        ShelfController.insertProduct(product);
-                        updateManageShelf();
-                        updateShelf();
-                        dispose();
-                    } catch (ParseException e) {
-                        e.printStackTrace();
+                                ShelfController.insertProduct(product);
+                                updateManageShelf();
+                                updateShelf();
+                                try {
+                                    ShelfController.writeFile();
+                                } catch (FileNotFoundException ex) {
+                                    ex.printStackTrace();
+                                }
+                                dispose();
+                            }
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                     }
+
                 }
             });
 
@@ -1347,34 +1363,6 @@ public class MainInterface {
             this.setVisible(true);
         }
 
-        //method for generate menu
-//        public void generateMenu(){
-//            menuBar = new JMenuBar();
-//
-//            JMenu file = new JMenu("File");
-//            JMenu tools = new JMenu("Tools");
-//            JMenu help = new JMenu("Help");
-//
-//            JMenuItem open = new JMenuItem("Open   ");
-//            JMenuItem save = new JMenuItem("Save   ");
-//            JMenuItem exit = new JMenuItem("Exit   ");
-//            JMenuItem preferences = new JMenuItem("Preferences   ");
-//            JMenuItem about = new JMenuItem("About   ");
-//
-//
-//            file.add(open);
-//            file.add(save);
-//            file.addSeparator();
-//            file.add(exit);
-//            tools.add(preferences);
-//            help.add(about);
-//
-//            menuBar.add(file);
-//            menuBar.add(tools);
-//            menuBar.add(help);
-//        }
-
-
     }
 
     public class GUI_shelfEditDelete extends JFrame {
@@ -1385,7 +1373,7 @@ public class MainInterface {
         private JButton shelfEditDelete_cancel_button;
         private JButton shelfEditDelete_confirm_button;
         private JLabel shelfEditDelete_discountRate_label;
-        private JTextField shelfEditDelete_discountRate_ltextfield;
+        private JTextField shelfEditDelete_discountRate_textfield;
         private JTextField shelfEditDelete_id_textfield;
         private JLabel shelfEditDelete_name_label;
         private JTextField shelfEditDelete_name_textfield;
@@ -1497,19 +1485,57 @@ public class MainInterface {
             shelfEditDelete_confirm_button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
-                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                    if (shelfEditDelete_id_textfield.getText().equals("") || shelfEditDelete_name_textfield.getText().equals("") || shelfEditDelete_type_textfield.getText().equals("")
+                            || shelf_price_textfield4.getText().equals("") || shelfEditDelete_shelfLife_textfield.getText().equals("") || shelfEditDelete_startDate_textfield.getText().equals("")
+                            || shelfEditDelete_discountRate_textfield.getText().equals("") || shelfEditDelete_sellType_textfield.getText().equals("") || shelfEditDelete_number_textfield.getText().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Sorry, one or more text fields are empty");
+                    } else {
+                        try {
+                            int pId = Integer.parseInt(shelfEditDelete_id_textfield.getText());
+                            String pName = shelfEditDelete_name_textfield.getText();
+                            int pType = Integer.parseInt(shelfEditDelete_type_textfield.getText());
+                            double pPrice = Double.parseDouble(shelf_price_textfield4.getText());
+                            int pLife = Integer.parseInt(shelfEditDelete_shelfLife_textfield.getText());
+                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                            String date = shelfEditDelete_startDate_textfield.getText();
+                            Date pDate = formatter.parse(shelfEditDelete_startDate_textfield.getText());
+                            double pRate = Double.parseDouble(shelfEditDelete_discountRate_textfield.getText());
+                            int pSellType = Integer.parseInt(shelfEditDelete_sellType_textfield.getText());
+                            int pNum = Integer.parseInt(shelfEditDelete_number_textfield.getText());
+                            if (!ShelfController.validateProductId(pId)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product Id is invalid!");
+                            } else if (!ShelfController.validateProductName(pName)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product name is invalid!");
+                            } else if (!ShelfController.validateProductType(pType)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product type is invalid!");
+                            } else if (!ShelfController.validateProductPrice(pPrice)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product price is invalid!");
+                            } else if (!ShelfController.validateProductShelfLife(pLife)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product shelf life is invalid!");
+                            } else if (!ShelfController.validateProductStartDate(date)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product date is invalid!");
+                            } else if (!ShelfController.validateProductDiscountRate(pRate)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product discount rate is invalid!");
+                            } else if (!ShelfController.validateProductSellType(pSellType)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product sell type is invalid!");
+                            } else if (!ShelfController.validateProductNum(pNum)) {
+                                JOptionPane.showMessageDialog(null, "Sorry, product quantity is invalid!");
+                            } else {
+                                Product product = new Product(pId, pName, pType, pPrice, pLife, pDate, pRate, pSellType, pNum);
 
-                    try {
-                        Product product = new Product(Integer.parseInt(shelfEditDelete_id_textfield.getText()), shelfEditDelete_name_textfield.getText(), Integer.parseInt(shelfEditDelete_type_textfield.getText()),
-                                Double.parseDouble(shelf_price_textfield4.getText()), Integer.parseInt(shelfEditDelete_shelfLife_textfield.getText()), formatter.parse(shelfEditDelete_startDate_textfield.getText()),
-                                Double.parseDouble(shelfEditDelete_discountRate_ltextfield.getText()), Integer.parseInt(shelfEditDelete_sellType_textfield.getText()), Integer.parseInt(shelfEditDelete_number_textfield.getText()));
-
-                        ShelfController.updateProduct(row, product);
-                        updateManageShelf();
-                        updateShelf();
-                        dispose();
-                    } catch (ParseException e) {
-                        e.printStackTrace();
+                                ShelfController.updateProduct(row, product);
+                                updateManageShelf();
+                                updateShelf();
+                                try {
+                                    ShelfController.writeFile();
+                                } catch (FileNotFoundException ex) {
+                                    ex.printStackTrace();
+                                }
+                                dispose();
+                            }
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             });
@@ -1523,14 +1549,14 @@ public class MainInterface {
             shelfEditDelete_discountRate_label.setText("Discount Rate:");
             shelfEditDelete_discountRate_label.setVisible(true);
 
-            shelfEditDelete_discountRate_ltextfield = new JTextField();
-            shelfEditDelete_discountRate_ltextfield.setBounds(163, 282, 90, 35);
-            shelfEditDelete_discountRate_ltextfield.setBackground(new Color(255, 255, 255));
-            shelfEditDelete_discountRate_ltextfield.setForeground(new Color(0, 0, 0));
-            shelfEditDelete_discountRate_ltextfield.setEnabled(true);
-            shelfEditDelete_discountRate_ltextfield.setFont(new Font("sansserif", 0, 12));
-            shelfEditDelete_discountRate_ltextfield.setText("" + product.getDiscountRate());
-            shelfEditDelete_discountRate_ltextfield.setVisible(true);
+            shelfEditDelete_discountRate_textfield = new JTextField();
+            shelfEditDelete_discountRate_textfield.setBounds(163, 282, 90, 35);
+            shelfEditDelete_discountRate_textfield.setBackground(new Color(255, 255, 255));
+            shelfEditDelete_discountRate_textfield.setForeground(new Color(0, 0, 0));
+            shelfEditDelete_discountRate_textfield.setEnabled(true);
+            shelfEditDelete_discountRate_textfield.setFont(new Font("sansserif", 0, 12));
+            shelfEditDelete_discountRate_textfield.setText("" + product.getDiscountRate());
+            shelfEditDelete_discountRate_textfield.setVisible(true);
 
             shelfEditDelete_id_textfield = new JTextField();
             shelfEditDelete_id_textfield.setBounds(163, 42, 90, 35);
@@ -1692,7 +1718,7 @@ public class MainInterface {
             shelfEditDelete_pannel.add(shelfEditDelete_cancel_button);
             shelfEditDelete_pannel.add(shelfEditDelete_confirm_button);
             shelfEditDelete_pannel.add(shelfEditDelete_discountRate_label);
-            shelfEditDelete_pannel.add(shelfEditDelete_discountRate_ltextfield);
+            shelfEditDelete_pannel.add(shelfEditDelete_discountRate_textfield);
             shelfEditDelete_pannel.add(shelfEditDelete_id_textfield);
             shelfEditDelete_pannel.add(shelfEditDelete_name_label);
             shelfEditDelete_pannel.add(shelfEditDelete_name_textfield);
@@ -1718,33 +1744,6 @@ public class MainInterface {
             this.pack();
             this.setVisible(true);
         }
-
-        //method for generate menu
-//        public void generateMenu(){
-//            menuBar = new JMenuBar();
-//
-//            JMenu file = new JMenu("File");
-//            JMenu tools = new JMenu("Tools");
-//            JMenu help = new JMenu("Help");
-//
-//            JMenuItem open = new JMenuItem("Open   ");
-//            JMenuItem save = new JMenuItem("Save   ");
-//            JMenuItem exit = new JMenuItem("Exit   ");
-//            JMenuItem preferences = new JMenuItem("Preferences   ");
-//            JMenuItem about = new JMenuItem("About   ");
-//
-//
-//            file.add(open);
-//            file.add(save);
-//            file.addSeparator();
-//            file.add(exit);
-//            tools.add(preferences);
-//            help.add(about);
-//
-//            menuBar.add(file);
-//            menuBar.add(tools);
-//            menuBar.add(help);
-//        }
     }
 
     public class GUI_userInfo extends JFrame {
@@ -1930,32 +1929,6 @@ public class MainInterface {
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
 
-//    //method for generate menu
-//    public void generateMenu(){
-//        menuBar = new JMenuBar();
-//
-//        JMenu file = new JMenu("File");
-//        JMenu tools = new JMenu("Tools");
-//        JMenu help = new JMenu("Help");
-//
-//        JMenuItem open = new JMenuItem("Open   ");
-//        JMenuItem save = new JMenuItem("Save   ");
-//        JMenuItem exit = new JMenuItem("Exit   ");
-//        JMenuItem preferences = new JMenuItem("Preferences   ");
-//        JMenuItem about = new JMenuItem("About   ");
-//
-//
-//        file.add(open);
-//        file.add(save);
-//        file.addSeparator();
-//        file.add(exit);
-//        tools.add(preferences);
-//        help.add(about);
-//
-//        menuBar.add(file);
-//        menuBar.add(tools);
-//        menuBar.add(help);
-//    }
     }
 
 }

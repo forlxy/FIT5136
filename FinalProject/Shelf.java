@@ -9,27 +9,27 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class  Shelf {
+public class Shelf {
 
     private static List<Product> shelfProducts;
 
     public Shelf() {
     }
 
-    static{
+    static {
         shelfProducts = new ArrayList<Product>();
     }
 
-    public static List<Product> getShelfProducts(){
+    public static List<Product> getShelfProducts() {
         return shelfProducts;
     }
-    
+
     public static List<Product> searchProduct(String productName) {
 
         List<Product> searchedProducts = new ArrayList<Product>();
 
         for (Product product : shelfProducts) {
-            if(product.getName().equals(productName)) {
+            if (product.getName().equals(productName)) {
                 searchedProducts.add(product);
             }
         }
@@ -40,13 +40,13 @@ public class  Shelf {
         return shelfProducts.set(index, newProduct) != null;
     }
 
-    public static Product getProdcutById(int Id) {
+    public static Product getProductById(int Id) {
         for (Product product : shelfProducts) {
-            if(product.getId() == Id) {
+            if (product.getId() == Id) {
                 return product;
             }
         }
-        return  null;
+        return null;
     }
 
     public static boolean insertProduct(Product product) {
@@ -57,59 +57,8 @@ public class  Shelf {
         return shelfProducts.remove(index) != null;
     }
 
-    public static boolean validateProductName(String name) {
 
-        return true;
-    }
 
-    public static boolean validateProductType(int type) {
-
-        return true;
-    }
-
-    public static boolean validateProductPrice(double price) {
-        if (price < 0) {
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean validateProductShelfLife() {
-
-        return true;
-    }
-
-    public static boolean validateProductStartDate(String strStartDate) {
-        if (strStartDate.trim().equals(""))
-        {
-            return false;
-        } else {
-
-            SimpleDateFormat dateFormate = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                dateFormate.parse(strStartDate);
-            }
-            catch (Exception e) {
-                return false;
-            }
-
-            return true;
-        }
-
-    }
-
-    public static boolean validateProductDiscountRate(int discountRate) {
-        if (discountRate >= 0 || discountRate <= 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean validateProductSellType() {
-
-        return true;
-    }
 
     public static void readFile() throws FileNotFoundException, ParseException {
         Scanner scanner = new Scanner(new File("Shelf.csv"));
@@ -126,7 +75,8 @@ public class  Shelf {
             double price = Double.parseDouble(parts[3]);
             int shelfLife = Integer.parseInt(parts[4]);
             Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(parts[5]);
-            double discountRate = Double.parseDouble(parts[6]);;
+            double discountRate = Double.parseDouble(parts[6]);
+            ;
             int sellType = Integer.parseInt(parts[7]);
             int productNumber = Integer.parseInt(parts[8]);
 
@@ -169,6 +119,6 @@ public class  Shelf {
         pw.close();
         System.out.println("Write to ShelfDB done!");
     }
-    
-    
+
+
 }

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/Shelf.java" line="44" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="85992b04-5a76-439b-9580-05a58e3562d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Customer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI_changePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_changePassword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI_register.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/MainInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shelf.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/transactions.csv" afterDir="false" />
@@ -22,40 +25,56 @@
     <session id="2071209780">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="12" />
+          <entry key="java" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="12" />
+          <entry key="JAVA" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="845" />
+          <entry key="java" value="1503" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="845" />
+          <entry key="JAVA" value="1503" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shelf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="32" column="46" lean-forward="true" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+            <state relative-caret-position="378">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+              <folding>
+                <element signature="e#1318#1319#0" expanded="true" />
+                <element signature="e#1367#1368#0" expanded="true" />
+                <element signature="e#1421#1422#0" expanded="true" />
+                <element signature="e#1479#1480#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Cart.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -63,17 +82,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Product.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-588">
+            <state relative-caret-position="-559">
               <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI_login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="839">
-              <caret line="179" column="25" lean-forward="true" selection-start-line="179" selection-start-column="25" selection-end-line="179" selection-end-column="25" />
+            <state relative-caret-position="213">
+              <caret line="177" column="2" lean-forward="true" selection-start-line="177" selection-start-column="2" selection-end-line="177" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -81,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI_register.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1113">
-              <caret line="174" column="21" selection-start-line="174" selection-start-column="21" selection-end-line="174" selection-end-column="21" />
+            <state relative-caret-position="265">
+              <caret line="222" column="30" lean-forward="true" selection-start-line="222" selection-start-column="30" selection-end-line="222" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -90,11 +109,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="692" column="46" selection-start-line="692" selection-start-column="46" selection-end-line="692" selection-end-column="46" />
+            <state relative-caret-position="430">
+              <caret line="75" column="9" lean-forward="true" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
               <folding>
                 <element signature="e#1557#1558#0" expanded="true" />
                 <element signature="e#1595#1596#0" expanded="true" />
+                <element signature="method#MainInterface#0;class#MainInterface#0" />
+                <element signature="e#3359#3868#0" expanded="true" />
+                <element signature="e#3867#3868#0" expanded="true" />
                 <element signature="e#9092#9093#0" expanded="true" />
                 <element signature="e#9141#9142#0" expanded="true" />
                 <element signature="e#13918#13919#0" expanded="true" />
@@ -103,25 +125,28 @@
                 <element signature="e#15807#15808#0" expanded="true" />
                 <element signature="e#18971#18972#0" expanded="true" />
                 <element signature="e#19020#19021#0" expanded="true" />
-                <element signature="e#22750#22751#0" expanded="true" />
-                <element signature="e#22841#22842#0" expanded="true" />
-                <element signature="e#23320#23321#0" expanded="true" />
-                <element signature="e#23369#23370#0" expanded="true" />
-                <element signature="method#GUI_shelfAdd#0;class#GUI_shelfAdd#0;class#MainInterface#0" />
-                <element signature="e#82112#82113#0" expanded="true" />
-                <element signature="e#82176#82177#0" expanded="true" />
-                <element signature="e#82987#82988#0" expanded="true" />
-                <element signature="e#83052#83053#0" expanded="true" />
+                <element signature="class#GUI_editCart#0;class#MainInterface#0" />
+                <element signature="class#GUI_shelfAdd#0;class#MainInterface#0" />
+                <element signature="e#41045#55453#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI_changePassword.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="146" column="33" lean-forward="true" selection-start-line="146" selection-start-column="33" selection-end-line="146" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CartController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+            <state relative-caret-position="598">
+              <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -130,7 +155,7 @@
         <entry file="file://$PROJECT_DIR$/ShelfController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="483">
-              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+              <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
               <folding>
                 <element signature="e#570#571#0" expanded="true" />
                 <element signature="e#625#626#0" expanded="true" />
@@ -143,11 +168,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>person</find>
-      <find>purcha</find>
-      <find>cartui</find>
-      <find>addproduct</find>
-      <find>cartbutton</find>
       <find>clearbut</find>
       <find>GU</find>
       <find>SHELFADD</find>
@@ -156,7 +176,6 @@
       <find>addtocar</find>
       <find>GUI_addToCart</find>
       <find>addtocart</find>
-      <find>update</find>
       <find>updateManageShelf();</find>
       <find>updateManageShelf()</find>
       <find>addtoc</find>
@@ -166,9 +185,19 @@
       <find>addtoca</find>
       <find>product</find>
       <find>GUI_addto</find>
-      <find>purchase</find>
       <find>search</find>
       <find>toCart</find>
+      <find>Gui_add</find>
+      <find>Gui_edit</find>
+      <find>user</find>
+      <find>this.setDefaultCloseOperation</find>
+      <find>changep</find>
+      <find>GUI_changePassword</find>
+      <find>AddtoCart</find>
+      <find>clear</find>
+      <find>update</find>
+      <find>purchase</find>
+      <find>setDefaultCloseOperation</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -179,10 +208,11 @@
       <list>
         <option value="$PROJECT_DIR$/GUI_login.java" />
         <option value="$PROJECT_DIR$/Product.java" />
-        <option value="$PROJECT_DIR$/Shelf.java" />
-        <option value="$PROJECT_DIR$/CartController.java" />
         <option value="$PROJECT_DIR$/GUI_register.java" />
+        <option value="$PROJECT_DIR$/GUI_changePassword.java" />
+        <option value="$PROJECT_DIR$/Shelf.java" />
         <option value="$PROJECT_DIR$/MainInterface.java" />
+        <option value="$PROJECT_DIR$/CartController.java" />
       </list>
     </option>
   </component>
@@ -198,8 +228,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -214,7 +244,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539828334780" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539833721492" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -281,34 +311,35 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Learn" weight="0.32995737" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18603411" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1881663" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32899022" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.32899022" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Learn" order="6" weight="0.32995737" />
+      <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24972856" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.1921824" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4397394" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32899022" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32899022" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
     <layout-to-restore>
       <window_info id="Image Layers" order="0" />
@@ -343,18 +374,6 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Shelf.java</url>
-          <line>30</line>
-          <properties />
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/CartUI.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -382,22 +401,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Cart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="147">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Shelf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="32" column="46" lean-forward="true" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+        <state relative-caret-position="378">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#1318#1319#0" expanded="true" />
+            <element signature="e#1367#1368#0" expanded="true" />
+            <element signature="e#1421#1422#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-559">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI_login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="177" column="2" lean-forward="true" selection-start-line="177" selection-start-column="2" selection-end-line="177" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="75" column="9" lean-forward="true" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
+          <folding>
+            <element signature="e#1557#1558#0" expanded="true" />
+            <element signature="e#1595#1596#0" expanded="true" />
+            <element signature="method#MainInterface#0;class#MainInterface#0" />
+            <element signature="e#3359#3868#0" expanded="true" />
+            <element signature="e#3867#3868#0" expanded="true" />
+            <element signature="e#9092#9093#0" expanded="true" />
+            <element signature="e#9141#9142#0" expanded="true" />
+            <element signature="e#13918#13919#0" expanded="true" />
+            <element signature="e#13967#13968#0" expanded="true" />
+            <element signature="e#15758#15759#0" expanded="true" />
+            <element signature="e#15807#15808#0" expanded="true" />
+            <element signature="e#18971#18972#0" expanded="true" />
+            <element signature="e#19020#19021#0" expanded="true" />
+            <element signature="class#GUI_editCart#0;class#MainInterface#0" />
+            <element signature="class#GUI_shelfAdd#0;class#MainInterface#0" />
+            <element signature="e#41045#55453#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI_register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="222" column="30" lean-forward="true" selection-start-line="222" selection-start-column="30" selection-end-line="222" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI_changePassword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="146" column="33" lean-forward="true" selection-start-line="146" selection-start-column="33" selection-end-line="146" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShelfController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
-          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
           <folding>
             <element signature="e#570#571#0" expanded="true" />
             <element signature="e#625#626#0" expanded="true" />
@@ -407,57 +485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI_register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1113">
-          <caret line="174" column="21" selection-start-line="174" selection-start-column="21" selection-end-line="174" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MainInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="692" column="46" selection-start-line="692" selection-start-column="46" selection-end-line="692" selection-end-column="46" />
-          <folding>
-            <element signature="e#1557#1558#0" expanded="true" />
-            <element signature="e#1595#1596#0" expanded="true" />
-            <element signature="e#9092#9093#0" expanded="true" />
-            <element signature="e#9141#9142#0" expanded="true" />
-            <element signature="e#13918#13919#0" expanded="true" />
-            <element signature="e#13967#13968#0" expanded="true" />
-            <element signature="e#15758#15759#0" expanded="true" />
-            <element signature="e#15807#15808#0" expanded="true" />
-            <element signature="e#18971#18972#0" expanded="true" />
-            <element signature="e#19020#19021#0" expanded="true" />
-            <element signature="e#22750#22751#0" expanded="true" />
-            <element signature="e#22841#22842#0" expanded="true" />
-            <element signature="e#23320#23321#0" expanded="true" />
-            <element signature="e#23369#23370#0" expanded="true" />
-            <element signature="method#GUI_shelfAdd#0;class#GUI_shelfAdd#0;class#MainInterface#0" />
-            <element signature="e#82112#82113#0" expanded="true" />
-            <element signature="e#82176#82177#0" expanded="true" />
-            <element signature="e#82987#82988#0" expanded="true" />
-            <element signature="e#83052#83053#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-588">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI_login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="839">
-          <caret line="179" column="25" lean-forward="true" selection-start-line="179" selection-start-column="25" selection-end-line="179" selection-end-column="25" />
+        <state relative-caret-position="598">
+          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
         </state>
       </provider>
     </entry>

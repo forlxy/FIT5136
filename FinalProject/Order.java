@@ -62,6 +62,10 @@ public class Order {
         this.customer = customer;
     }
 
+    public String getCustomerEmail() {
+        return customer.getEmail();
+    }
+
     public List<Product> getProducts() {
         return products;
     }

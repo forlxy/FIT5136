@@ -7,12 +7,10 @@ public class CartController {
 
     public static boolean addItem(Product product) {
         return Cart.addItem(product);
-
     }
 
     public static boolean removeItem(int index) {
         return Cart.removeItem(index);
-
     }
 
     public static boolean updateCart(int index, int num) {
@@ -27,16 +25,10 @@ public class CartController {
         Order newOrder = new Order(UUID.randomUUID().toString(), MainInterface.getCurrentUser(), new ArrayList<>(Cart.getProductList()), new Date(), Cart.getTotalPrice());
         boolean result = Transaction.addOrder(newOrder);
         for(Order o: Transaction.getOrderList()){
-
-            System.out.println(o);
-        }
-
-        for(Order o: Transaction.getOrderList()){
-
             System.out.println(o);
         }
         for (Product pInCart: Cart.getProductList()) {
-            Product pOnShelf= Shelf.getProdcutById(pInCart.getId());
+            Product pOnShelf= Shelf.getProductById(pInCart.getId());
             if (pOnShelf != null) {
                 pOnShelf.setProductNumber(pOnShelf.getProductNumber() - pInCart.getProductNumber());
             }
@@ -44,8 +36,6 @@ public class CartController {
         clearCart();
         return result;
     }
-
-
 
     public static List<Product> getProductList() {
         return Cart.getProductList();
